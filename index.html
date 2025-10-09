@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Engineer Portfolio - Sébastien Jeanfavre</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #5b21b6;
+            --secondary-color: #6d28d9;
+            --dark-bg: #1e1b4b;
+            --light-bg: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --accent: #7c3aed;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--light-bg);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Header/Hero Section */
+        header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .hero-content .tagline {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 5rem;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2.5rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+            padding-bottom: 0.75rem;
+        }
+
+        section h3 {
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .about-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .about-card h4 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .skill-category h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .skill-category li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        /* Project Section */
+        .project-showcase {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .project-showcase h3 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-top: 0;
+        }
+
+        .project-header {
+            margin-bottom: 2rem;
+        }
+
+        .project-header p {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            margin-top: 1rem;
+        }
+
+        .project-details {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+
+        .project-section {
+            margin-bottom: 2rem;
+        }
+
+        .project-section h4 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: #faf8ff;
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid #e9d5ff;
+        }
+
+        .architecture-flow {
+            background: #f3f0ff;
+            color: var(--text-dark);
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: monospace;
+            text-align: center;
+            font-size: 1.05rem;
+            margin: 1rem 0;
+            letter-spacing: 0.5px;
+            border: 1px solid #e9d5ff;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .feature-item h5 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .feature-item ul {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+
+        .feature-item li {
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .feature-item li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .code-highlight {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .project-image {
+            width: 100%;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #f3f0ff;
+            border-radius: 12px;
+            border: 1px solid #e9d5ff;
+        }
+
+        .project-image svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .project-image {
+                padding: 1.5rem;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1.2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#project">Projects</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home">
+        <div class="hero-content">
+            <h1>Sébastien Jeanfavre</h1>
+            <div class="subtitle">Data Engineer @ Romande Energie | Switzerland</div>
+            <p class="tagline">
+                Bridging engineering and data to drive the energy transition
+                through intelligent data analytics and innovative solutions
+            </p>
+            <div style="margin-top: 2rem; display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; opacity: 0.9;">
+                <span>🇫🇷 French (Native)</span>
+                <span>🇬🇧 English (C1)</span>
+                <span>🇩🇪 German (Fluent)</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem; color: var(--text-light);">
+                As a data engineer with a unique blend of electrical engineering foundations and advanced data science expertise,
+                I'm passionate about leveraging data to transform the energy sector. I believe in <strong>simple, impactful, and efficient solutions</strong>
+                that deliver real value—starting with what works and iterating based on actual needs rather than building complex systems upfront.
+                My work focuses on creating robust data infrastructure and analytics platforms that enable data-driven decision-making for energy transition and
+                optimization of energy consumption and production patterns.
+            </p>
+
+            <div class="about-grid">
+                <div class="about-card">
+                    <h4>Education</h4>
+                    <p><strong>Master in Electrical Engineering</strong><br>
+                    <span style="color: var(--text-light); font-size: 0.95rem;">Specialization in Data Science and Systems</span><br>
+                    <span style="color: var(--text-light); font-size: 0.9rem;">EPFL, Lausanne (2020-2023)</span></p>
+                    <p style="margin-top: 1rem;"><strong>Bachelor in Electrical Engineering</strong><br>
+                    <span style="color: var(--text-light); font-size: 0.9rem;">EPFL, Lausanne (2016-2020)</span><br>
+                    <span style="color: var(--text-light); font-size: 0.85rem;">Including Erasmus year at KIT, Germany</span></p>
+                    <p style="margin-top: 1rem; color: var(--text-light);">
+                        EPFL's rigorous engineering curriculum combined with data science specialization provides a unique perspective on energy systems and advanced analytics.
+                    </p>
+                </div>
+
+                <div class="about-card">
+                    <h4>Engineering Philosophy</h4>
+                    <p style="color: var(--text-light);">
+                        I believe in <strong>pragmatic solutions over complexity</strong>. The best data systems are:
+                    </p>
+                    <ul style="margin-top: 1rem; list-style: none;">
+                        <li style="padding: 0.5rem 0;">🎯 Simple and maintainable</li>
+                        <li style="padding: 0.5rem 0;">⚡ Focused on real business impact</li>
+                        <li style="padding: 0.5rem 0;">🔄 Iterative rather than over-engineered</li>
+                        <li style="padding: 0.5rem 0;">📈 Efficient and cost-effective</li>
+                        <li style="padding: 0.5rem 0;">✅ Built to solve problems</li>
+                    </ul>
+                    <p style="color: var(--text-light); margin-top: 1rem; font-size: 0.95rem;">
+                        Start simple, deliver value quickly, then scale and optimize based on proven needs.
+                    </p>
+                </div>
+
+                <div class="about-card">
+                    <h4>Professional Focus</h4>
+                    <p style="color: var(--text-light);">
+                        Data engineering and analytics in the energy sector, with emphasis on:
+                    </p>
+                    <ul style="margin-top: 1rem; list-style: none;">
+                        <li style="padding: 0.5rem 0;">⚡ Energy transition analytics</li>
+                        <li style="padding: 0.5rem 0;">📊 Consumption pattern analysis</li>
+                        <li style="padding: 0.5rem 0;">🔋 Production optimization & forecasting</li>
+                        <li style="padding: 0.5rem 0;">☀️ PV panel analytics & grid integration</li>
+                        <li style="padding: 0.5rem 0;">🌱 Sustainable energy solutions</li>
+                    </ul>
+                </div>
+
+                <div class="about-card">
+                    <h4>Interests & Vision</h4>
+                    <p style="color: var(--text-light);">
+                        I'm deeply interested in how data can accelerate the energy transition and reshape energy
+                        consumption and production behaviors. The massive deployment of photovoltaic (PV) panels has
+                        fundamentally transformed the energy landscape, creating unprecedented demand for sophisticated
+                        forecasting algorithms across multiple use cases—from grid balancing and energy trading to
+                        demand response and storage optimization.
+                    </p>
+                    <p style="color: var(--text-light); margin-top: 1rem;">
+                        Data has never been more central to the energy sector. My goal is to build scalable data
+                        platforms and develop advanced analytics solutions that provide actionable insights for
+                        sustainable energy management in this rapidly evolving ecosystem.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Professional Experience Highlight -->
+            <div style="margin-top: 3rem; padding: 2.5rem; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); border-left: 4px solid var(--primary-color);">
+                <h3 style="color: var(--primary-color); font-size: 1.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <span style="font-size: 2rem;">⚡</span> Data Engineer @ Romande Energie SA
+                </h3>
+                <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                    <strong>2022 - Present</strong>
+                </p>
+                <p style="color: var(--text-dark); font-size: 1.05rem; line-height: 1.8;">
+                    Development of <strong>pragmatic data pipelines using agile framework and CI/CD</strong> methodologies.
+                    Focused on building <strong>simple, maintainable solutions</strong> that deliver measurable business value—optimizing
+                    for impact and efficiency rather than complexity.
+                </p>
+                <div style="margin-top: 1.5rem; padding: 1.5rem; background: var(--light-bg); border-radius: 8px; border-left: 3px solid var(--primary-color);">
+                    <p style="color: var(--primary-color); font-weight: 600; margin-bottom: 0.5rem;">Key Achievement:</p>
+                    <p style="color: var(--text-dark); line-height: 1.7;">
+                        Deployed an <strong>end-to-end forecasting pipeline in production</strong> integrating
+                        forecasting algorithms to <strong>reduce balancing energy costs</strong>,
+                        demonstrating direct business impact of data-driven energy optimization.
+                    </p>
+                </div>
+                <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 2px solid var(--light-bg);">
+                    <p style="color: var(--text-light); font-size: 0.95rem;">
+                        <strong style="color: var(--text-dark);">Technologies:</strong> Python, SQL, Snowflake, CI/CD (GitLab), Agile methodologies
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Technical Skills</h2>
+
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Data Engineering</h4>
+                    <ul>
+                        <li>ETL Pipeline Design & Implementation</li>
+                        <li>Data Modeling & Warehouse Architecture</li>
+                        <li>Automated Data Orchestration</li>
+                        <li>Performance Optimization</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Snowflake & Cloud</h4>
+                    <ul>
+                        <li>Snowflake SnowPro Core Certified</li>
+                        <li>Dynamic Tables & Streams</li>
+                        <li>Task Scheduling & Automation</li>
+                        <li>FinOps and Cost Optimization</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>SQL & Data Processing</h4>
+                    <ul>
+                        <li>Advanced SQL (CTEs, Window Functions)</li>
+                        <li>Complex Data Types & JSON Processing</li>
+                        <li>Cumulative Table Design</li>
+                        <li>Statistical Analysis</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Programming & Tools</h4>
+                    <ul>
+                        <li>Python & SQL</li>
+                        <li>CI/CD (GitLab) & Git</li>
+                        <li>REST API Integration</li>
+                        <li>Agile Methodologies</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Analytics & Forecasting</h4>
+                    <ul>
+                        <li>Time Series Analysis & Forecasting</li>
+                        <li>Predictive Modeling</li>
+                        <li>Performance Metrics Development</li>
+                        <li>Energy Optimization Algorithms</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="project">
+            <h2>Projects</h2>
+
+            <div class="project-showcase">
+                <div class="project-header">
+                    <h3>World Triathlon Data Analytics Platform</h3>
+                    <p>
+                        A comprehensive Snowflake-based data warehouse for triathlon race analytics, athlete performance
+                        tracking, and competitive insights. This project demonstrates end-to-end data engineering from
+                        raw data ingestion to advanced analytical capabilities.
+                    </p>
+                </div>
+
+                <div class="project-image">
+                    <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+                        <!-- API Source -->
+                        <g transform="translate(50, 100)">
+                            <rect width="120" height="80" rx="8" fill="#fff" stroke="#5b21b6" stroke-width="2"/>
+                            <text x="60" y="35" text-anchor="middle" fill="#5b21b6" font-size="14" font-weight="600">API</text>
+                            <text x="60" y="55" text-anchor="middle" fill="#64748b" font-size="12">World Triathlon</text>
+                        </g>
+
+                        <!-- Arrow 1 -->
+                        <path d="M 170 140 L 230 140" stroke="#7c3aed" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+
+                        <!-- Staging Layer -->
+                        <g transform="translate(230, 80)">
+                            <rect width="140" height="120" rx="8" fill="#fff" stroke="#5b21b6" stroke-width="2"/>
+                            <text x="70" y="25" text-anchor="middle" fill="#5b21b6" font-size="14" font-weight="600">Staging Layer</text>
+                            <rect x="20" y="40" width="100" height="20" rx="4" fill="#f3f0ff" stroke="#a78bfa" stroke-width="1"/>
+                            <text x="70" y="54" text-anchor="middle" fill="#5b21b6" font-size="11">Events</text>
+                            <rect x="20" y="65" width="100" height="20" rx="4" fill="#f3f0ff" stroke="#a78bfa" stroke-width="1"/>
+                            <text x="70" y="79" text-anchor="middle" fill="#5b21b6" font-size="11">Programs</text>
+                            <rect x="20" y="90" width="100" height="20" rx="4" fill="#f3f0ff" stroke="#a78bfa" stroke-width="1"/>
+                            <text x="70" y="104" text-anchor="middle" fill="#5b21b6" font-size="11">Results</text>
+                        </g>
+
+                        <!-- Arrow 2 -->
+                        <path d="M 370 140 L 430 140" stroke="#7c3aed" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+
+                        <!-- Datamart Layer -->
+                        <g transform="translate(430, 60)">
+                            <rect width="190" height="160" rx="8" fill="#fff" stroke="#5b21b6" stroke-width="2"/>
+                            <text x="95" y="25" text-anchor="middle" fill="#5b21b6" font-size="14" font-weight="600">Datamart Layer</text>
+                            <text x="95" y="42" text-anchor="middle" fill="#64748b" font-size="10">Star Schema</text>
+
+                            <!-- Fact table -->
+                            <rect x="65" y="55" width="60" height="50" rx="4" fill="#5b21b6" stroke="none"/>
+                            <text x="95" y="75" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">Fact</text>
+                            <text x="95" y="90" text-anchor="middle" fill="#fff" font-size="9">Results</text>
+
+                            <!-- Dimension tables -->
+                            <rect x="15" y="115" width="50" height="30" rx="4" fill="#a78bfa" stroke="none"/>
+                            <text x="40" y="133" text-anchor="middle" fill="#fff" font-size="9">Athlete</text>
+
+                            <rect x="70" y="115" width="50" height="30" rx="4" fill="#a78bfa" stroke="none"/>
+                            <text x="95" y="133" text-anchor="middle" fill="#fff" font-size="9">Event</text>
+
+                            <rect x="125" y="115" width="50" height="30" rx="4" fill="#a78bfa" stroke="none"/>
+                            <text x="150" y="133" text-anchor="middle" fill="#fff" font-size="9">Program</text>
+                        </g>
+
+                        <!-- Arrow 3 -->
+                        <path d="M 620 140 L 650 140" stroke="#7c3aed" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+
+                        <!-- Analytics -->
+                        <g transform="translate(650, 100)">
+                            <rect width="120" height="80" rx="8" fill="#fff" stroke="#5b21b6" stroke-width="2"/>
+                            <text x="60" y="30" text-anchor="middle" fill="#5b21b6" font-size="14" font-weight="600">Analytics</text>
+                            <circle cx="35" cy="55" r="3" fill="#7c3aed"/>
+                            <circle cx="50" cy="48" r="3" fill="#7c3aed"/>
+                            <circle cx="65" cy="52" r="3" fill="#7c3aed"/>
+                            <circle cx="80" cy="45" r="3" fill="#7c3aed"/>
+                            <polyline points="35,55 50,48 65,52 80,45" stroke="#7c3aed" stroke-width="2" fill="none"/>
+                        </g>
+
+                        <!-- Arrow marker definition -->
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#7c3aed"/>
+                            </marker>
+                        </defs>
+
+                        <!-- Bottom labels -->
+                        <text x="400" y="320" text-anchor="middle" fill="#5b21b6" font-size="16" font-weight="600">Data Pipeline Architecture</text>
+                        <text x="400" y="345" text-anchor="middle" fill="#64748b" font-size="13">ETL → Staging → Dimensional Model → Business Intelligence</text>
+                    </svg>
+                </div>
+
+                <div class="tech-stack">
+                    <span class="tech-tag">Snowflake</span>
+                    <span class="tech-tag">SQL</span>
+                    <span class="tech-tag">Dynamic Tables</span>
+                    <span class="tech-tag">ETL</span>
+                    <span class="tech-tag">Dimensional Modeling</span>
+                    <span class="tech-tag">Git Integration</span>
+                    <span class="tech-tag">API Integration</span>
+                    <span class="tech-tag">JSON Processing</span>
+                    <span class="tech-tag">Task Orchestration</span>
+                </div>
+
+                <div class="project-details">
+                    <div class="project-section">
+                        <h4>🏗️ Architecture</h4>
+                        <p>Three-layer data architecture designed for scalability and automated refresh:</p>
+                        <div class="architecture-flow">
+                            Raw Data → Staging Layer → Datamart Layer → Analytics
+                        </div>
+                        <ul style="list-style: none; margin-top: 1rem;">
+                            <li style="padding: 0.5rem 0;"><strong>Staging:</strong> Raw data ingestion from World Triathlon APIs with initial processing</li>
+                            <li style="padding: 0.5rem 0;"><strong>Datamart:</strong> Dimensional model with dynamic tables (6-hour automated refresh)</li>
+                            <li style="padding: 0.5rem 0;"><strong>Analytics:</strong> Business intelligence queries and performance insights</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-section">
+                        <h4>📊 Data Model</h4>
+                        <p>Implemented a star schema with the following components:</p>
+
+                        <div class="feature-grid">
+                            <div class="feature-item">
+                                <h5>Dimension Tables</h5>
+                                <ul>
+                                    <li>dim_athlete (demographics & categories)</li>
+                                    <li>dim_event (competitions & specifications)</li>
+                                    <li>dim_program (race categories & distances)</li>
+                                </ul>
+                            </div>
+                            <div class="feature-item">
+                                <h5>Fact Tables</h5>
+                                <ul>
+                                    <li>fct_results (split times, rankings, positions)</li>
+                                    <li>fct_ranking (world rankings & points)</li>
+                                    <li>fct_start_list (race entries)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-section">
+                        <h4>⚙️ Key Technical Implementations</h4>
+
+                        <div class="feature-grid">
+                            <div class="feature-item">
+                                <h5>Dynamic Tables</h5>
+                                <ul>
+                                    <li>Automated 6-hour refresh cycle</li>
+                                    <li>Integrated transformation logic</li>
+                                    <li>Warehouse resource optimization</li>
+                                    <li>Dependency management</li>
+                                </ul>
+                            </div>
+
+                            <div class="feature-item">
+                                <h5>Advanced SQL Processing</h5>
+                                <ul>
+                                    <li>JSON parsing with FLATTEN</li>
+                                    <li>Window functions for rankings</li>
+                                    <li>Complex CTEs for data transformation</li>
+                                    <li>Time-based calculations</li>
+                                </ul>
+                            </div>
+
+                            <div class="feature-item">
+                                <h5>Orchestration</h5>
+                                <ul>
+                                    <li>Scheduled task automation</li>
+                                    <li>Stored procedure deployment</li>
+                                    <li>Error handling & logging</li>
+                                    <li>Manual refresh capabilities</li>
+                                </ul>
+                            </div>
+
+                            <div class="feature-item">
+                                <h5>Integration</h5>
+                                <ul>
+                                    <li>External API access integration</li>
+                                    <li>Git repository integration</li>
+                                    <li>Network rule configuration</li>
+                                    <li>Security & access controls</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-section">
+                        <h4>📈 Analytics Capabilities</h4>
+
+                        <div class="feature-grid">
+                            <div class="feature-item">
+                                <h5>Performance Analysis</h5>
+                                <ul>
+                                    <li>Split time analysis (swim/bike/run)</li>
+                                    <li>Pace calculations by distance</li>
+                                    <li>Position tracking across segments</li>
+                                    <li>Leader gap analysis</li>
+                                    <li>Historical trend tracking</li>
+                                </ul>
+                            </div>
+
+                            <div class="feature-item">
+                                <h5>Competitive Intelligence</h5>
+                                <ul>
+                                    <li>World ranking categorization</li>
+                                    <li>Performance buckets (top 10/20/30...)</li>
+                                    <li>Race dynamics analysis</li>
+                                    <li>Category comparisons (Elite, U23)</li>
+                                    <li>Course-specific performance</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-section">
+                        <h4>🎯 Project Outcomes</h4>
+                        <ul style="list-style: none;">
+                            <li style="padding: 0.5rem 0;">✓ Automated data pipeline processing thousands of race results</li>
+                            <li style="padding: 0.5rem 0;">✓ Real-time analytics with 6-hour data freshness</li>
+                            <li style="padding: 0.5rem 0;">✓ Scalable architecture supporting multi-year historical analysis</li>
+                            <li style="padding: 0.5rem 0;">✓ Advanced performance metrics for athlete evaluation</li>
+                            <li style="padding: 0.5rem 0;">✓ Comprehensive competitive intelligence platform</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem; padding: 1.5rem; background: #f3f0ff; border-radius: 10px; border-left: 3px solid var(--primary-color);">
+                    <h4 style="color: var(--primary-color); margin-bottom: 0.75rem; font-size: 1.1rem;">Skills Demonstrated</h4>
+                    <p style="color: var(--text-dark); line-height: 1.7;">
+                        This project showcases the full data engineering lifecycle: from requirements gathering and
+                        architecture design, through implementation of ETL pipelines and dimensional modeling, to
+                        deployment of automated orchestration and delivery of actionable analytics. It demonstrates
+                        proficiency in cloud data platforms, SQL optimization, API integration, and the ability to
+                        translate complex data requirements into scalable technical solutions.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Academic Research Project -->
+            <div class="project-showcase" style="margin-top: 3rem;">
+                <div class="project-header">
+                    <h3>🔬 Data-Driven Distributed Control of Microgrids</h3>
+                    <p style="color: var(--text-light); font-size: 1rem; margin-bottom: 0.5rem;">
+                        <strong>Academic Research Project | EPFL | Spring 2021</strong>
+                    </p>
+                    <p>
+                        Advanced research project applying deep reinforcement learning to optimize microgrid control systems.
+                        Directly relevant to modern energy challenges of integrating renewable energy sources and storage systems.
+                    </p>
+                </div>
+
+                <div class="project-image">
+                    <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Solar PV Array -->
+                        <g transform="translate(100, 50)">
+                            <rect width="160" height="100" rx="8" fill="#fff" stroke="#5b21b6" stroke-width="2"/>
+                            <text x="80" y="25" text-anchor="middle" fill="#5b21b6" font-size="14" font-weight="600">Solar PV</text>
+                            <!-- Solar panels -->
+                            <rect x="25" y="35" width="35" height="25" rx="3" fill="#fbbf24" stroke="#f59e0b" stroke-width="1.5"/>
+                            <rect x="65" y="35" width="35" height="25" rx="3" fill="#fbbf24" stroke="#f59e0b" stroke-width="1.5"/>
+                            <rect x="105" y="35" width="35" height="25" rx="3" fill="#fbbf24" stroke="#f59e0b" stroke-width="1.5"/>
+                            <!-- Sun rays -->
+                            <line x1="80" y1="15" x2="80" y2="5" stroke="#fbbf24" stroke-width="2"/>
+                            <line x1="65" y1="18" x2="58" y2="11" stroke="#fbbf24" stroke-width="2"/>
+                            <line x1="95" y1="18" x2="102" y2="11" stroke="#fbbf24" stroke-width="2"/>
+                            <text x="80" y="80" text-anchor="middle" fill="#64748b" font-size="12">Variable Generation</text>
+                        </g>
+
+                        <!-- Battery Storage -->
+                        <g transform="translate(100, 200)">
+                            <rect width="160" height="100" rx="8" fill="#fff" stroke="#5b21b6" stroke-width="2"/>
+                            <text x="80" y="25" text-anchor="middle" fill="#5b21b6" font-size="14" font-weight="600">Battery Storage</text>
+                            <!-- Battery icon -->
+                            <rect x="60" y="40" width="40" height="25" rx="3" fill="#10b981" stroke="#059669" stroke-width="2"/>
+                            <rect x="97" y="45" width="6" height="15" fill="#10b981"/>
+                            <!-- Charge indicator -->
+                            <rect x="65" y="48" width="8" height="12" fill="#fff" opacity="0.9"/>
+                            <rect x="75" y="48" width="8" height="12" fill="#fff" opacity="0.9"/>
+                            <rect x="85" y="48" width="8" height="12" fill="#fff" opacity="0.7"/>
+                            <text x="80" y="80" text-anchor="middle" fill="#64748b" font-size="12">Energy Storage</text>
+                        </g>
+
+                        <!-- Control System (Center) -->
+                        <g transform="translate(330, 150)">
+                            <rect width="140" height="120" rx="8" fill="#5b21b6" stroke="#5b21b6" stroke-width="2"/>
+                            <text x="70" y="30" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">AI Control</text>
+                            <text x="70" y="48" text-anchor="middle" fill="#e9d5ff" font-size="11">Deep RL Agent</text>
+                            <!-- Neural network icon -->
+                            <circle cx="40" cy="70" r="5" fill="#a78bfa"/>
+                            <circle cx="70" cy="60" r="5" fill="#a78bfa"/>
+                            <circle cx="70" cy="80" r="5" fill="#a78bfa"/>
+                            <circle cx="100" cy="70" r="5" fill="#a78bfa"/>
+                            <line x1="45" y1="70" x2="65" y2="62" stroke="#e9d5ff" stroke-width="1.5"/>
+                            <line x1="45" y1="70" x2="65" y2="78" stroke="#e9d5ff" stroke-width="1.5"/>
+                            <line x1="75" y1="60" x2="95" y2="70" stroke="#e9d5ff" stroke-width="1.5"/>
+                            <line x1="75" y1="80" x2="95" y2="70" stroke="#e9d5ff" stroke-width="1.5"/>
+                            <text x="70" y="105" text-anchor="middle" fill="#fff" font-size="11">Optimization</text>
+                        </g>
+
+                        <!-- Grid Connection -->
+                        <g transform="translate(560, 120)">
+                            <rect width="140" height="80" rx="8" fill="#fff" stroke="#5b21b6" stroke-width="2"/>
+                            <text x="70" y="25" text-anchor="middle" fill="#5b21b6" font-size="14" font-weight="600">Grid</text>
+                            <!-- Power lines -->
+                            <line x1="40" y1="45" x2="100" y2="45" stroke="#5b21b6" stroke-width="3"/>
+                            <circle cx="50" cy="45" r="4" fill="#7c3aed"/>
+                            <circle cx="70" cy="45" r="4" fill="#7c3aed"/>
+                            <circle cx="90" cy="45" r="4" fill="#7c3aed"/>
+                            <text x="70" y="68" text-anchor="middle" fill="#64748b" font-size="12">Main Grid</text>
+                        </g>
+
+                        <!-- Loads -->
+                        <g transform="translate(560, 240)">
+                            <rect width="140" height="100" rx="8" fill="#fff" stroke="#5b21b6" stroke-width="2"/>
+                            <text x="70" y="25" text-anchor="middle" fill="#5b21b6" font-size="14" font-weight="600">Loads</text>
+                            <!-- Houses/buildings -->
+                            <polygon points="40,50 50,40 60,50 60,65 40,65" fill="#e9d5ff" stroke="#7c3aed" stroke-width="1.5"/>
+                            <rect x="44" y="55" width="6" height="8" fill="#5b21b6"/>
+                            <polygon points="70,55 80,45 90,55 90,70 70,70" fill="#e9d5ff" stroke="#7c3aed" stroke-width="1.5"/>
+                            <rect x="74" y="60" width="6" height="8" fill="#5b21b6"/>
+                            <text x="70" y="85" text-anchor="middle" fill="#64748b" font-size="12">Variable Demand</text>
+                        </g>
+
+                        <!-- Arrows -->
+                        <defs>
+                            <marker id="arrowhead2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#7c3aed"/>
+                            </marker>
+                        </defs>
+
+                        <!-- PV to Control -->
+                        <path d="M 260 100 L 330 180" stroke="#7c3aed" stroke-width="2.5" fill="none" marker-end="url(#arrowhead2)" stroke-dasharray="5,5"/>
+                        <!-- Battery to Control -->
+                        <path d="M 260 250 L 330 230" stroke="#7c3aed" stroke-width="2.5" fill="none" marker-end="url(#arrowhead2)" stroke-dasharray="5,5"/>
+                        <!-- Control to Grid -->
+                        <path d="M 470 200 L 560 170" stroke="#7c3aed" stroke-width="2.5" fill="none" marker-end="url(#arrowhead2)"/>
+                        <!-- Control to Loads -->
+                        <path d="M 470 220 L 560 270" stroke="#7c3aed" stroke-width="2.5" fill="none" marker-end="url(#arrowhead2)"/>
+
+                        <!-- Title -->
+                        <text x="400" y="395" text-anchor="middle" fill="#5b21b6" font-size="16" font-weight="600">Microgrid System Architecture</text>
+                        <text x="400" y="420" text-anchor="middle" fill="#64748b" font-size="13">AI-Optimized Energy Distribution & Storage Management</text>
+                    </svg>
+                </div>
+
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Deep Reinforcement Learning</span>
+                    <span class="tech-tag">Control Systems</span>
+                    <span class="tech-tag">Optimization</span>
+                    <span class="tech-tag">Energy Systems</span>
+                    <span class="tech-tag">PV Integration</span>
+                </div>
+
+                <div class="project-details">
+                    <div class="project-section">
+                        <h4>🎯 Project Objective</h4>
+                        <p>
+                            Implementation of <strong>deep reinforcement learning agents</strong> to intelligently control
+                            a complex microgrid system composed of variable loads, battery storage systems, and
+                            photovoltaic (PV) power stations. The goal was to optimize energy distribution, minimize costs,
+                            and maintain grid stability under dynamic conditions.
+                        </p>
+                    </div>
+
+                    <div class="project-section">
+                        <h4>🔋 System Components</h4>
+                        <div class="feature-grid">
+                            <div class="feature-item">
+                                <h5>Microgrid Architecture</h5>
+                                <ul>
+                                    <li>Variable electrical loads (residential/commercial)</li>
+                                    <li>Battery energy storage systems (BESS)</li>
+                                    <li>Photovoltaic (PV) power stations</li>
+                                    <li>Grid connection interface</li>
+                                </ul>
+                            </div>
+                            <div class="feature-item">
+                                <h5>Control Challenges</h5>
+                                <ul>
+                                    <li>Non-linear system dynamics</li>
+                                    <li>Variable renewable generation</li>
+                                    <li>Dynamic load patterns</li>
+                                    <li>Storage optimization</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-section">
+                        <h4>⚡ Relevance to Energy Transition</h4>
+                        <p style="line-height: 1.8;">
+                            This research directly addresses one of the most critical challenges in modern energy systems:
+                            <strong>intelligently managing distributed energy resources</strong>. As the penetration of
+                            solar PV increases, grid operators and energy companies face complex optimization problems
+                            that require sophisticated control algorithms—exactly the type of challenge solved in this project
+                            and currently being addressed in production systems.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem; padding: 1.5rem; background: #f3f0ff; border-radius: 10px; border-left: 3px solid var(--primary-color);">
+                    <h4 style="color: var(--primary-color); margin-bottom: 0.75rem; font-size: 1.1rem;">Skills Demonstrated</h4>
+                    <p style="color: var(--text-dark); line-height: 1.7;">
+                        Advanced machine learning application to real-world energy systems, combining deep reinforcement learning,
+                        control theory, and optimization. Demonstrates ability to apply cutting-edge AI techniques to
+                        complex engineering problems in the energy sector—skills directly applicable to production forecasting
+                        and optimization systems.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Sébastien Jeanfavre | Data Engineer Portfolio</p>
+        <p style="margin-top: 0.5rem; opacity: 0.8;">Driving the energy transition through data excellence</p>
+    </footer>
+</body>
+</html>

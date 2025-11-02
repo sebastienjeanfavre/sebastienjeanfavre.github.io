@@ -2,8 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Data Engineer specializing in energy sector analytics, Snowflake, Python, and ETL pipelines. Building scalable data platforms for the energy transition.">
+    <meta name="author" content="Sébastien Jeanfavre">
+    <meta name="keywords" content="Data Engineer, Snowflake, Python, Energy Analytics, ETL, Data Warehouse, Switzerland">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sebastienjeanfavre.github.io/">
+    <meta property="og:title" content="Sébastien Jeanfavre - Data Engineer">
+    <meta property="og:description" content="Data Engineer @ Romande Energie | Snowflake SnowPro Certified | Building data platforms for the energy transition">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sébastien Jeanfavre - Data Engineer">
+    <meta name="twitter:description" content="Data Engineer specializing in energy sector analytics and scalable data platforms">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://sebastienjeanfavre.github.io/">
+
     <title>Data Engineer Portfolio - Sébastien Jeanfavre</title>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Sébastien Jeanfavre",
+      "jobTitle": "Data Engineer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Romande Energie SA"
+      },
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "EPFL - École polytechnique fédérale de Lausanne"
+      },
+      "knowsAbout": ["Data Engineering", "Snowflake", "Python", "SQL", "ETL", "Energy Analytics", "Machine Learning"],
+      "url": "https://sebastienjeanfavre.github.io/"
+    }
+    </script>
     <style>
         * {
             margin: 0;
@@ -63,6 +102,45 @@
 
         nav a:hover {
             color: var(--primary-color);
+        }
+
+        /* Hamburger Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+            position: absolute;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .menu-toggle span {
+            width: 30px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 10px;
+            transition: all 0.3s;
+            transform-origin: center;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
         }
 
         /* Header/Hero Section */
@@ -140,9 +218,10 @@
         /* About Section */
         .about-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
+            max-width: 900px;
         }
 
         .about-card {
@@ -325,6 +404,70 @@
             overflow-x: auto;
         }
 
+        /* Contact Section */
+        #contact {
+            text-align: center;
+            background: white;
+            padding: 4rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-intro {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.5rem 2rem;
+            background: var(--light-bg);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: all 0.3s;
+            min-width: 180px;
+            border: 2px solid transparent;
+        }
+
+        .contact-link:hover {
+            background: #f3f0ff;
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(91, 33, 182, 0.15);
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            fill: var(--primary-color);
+        }
+
+        .contact-link strong {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        .contact-link span {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
         /* Footer */
         footer {
             background: var(--dark-bg);
@@ -351,9 +494,53 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .project-image {
-                padding: 1.5rem;
+            .menu-toggle {
+                display: flex;
             }
+
+            nav {
+                position: relative;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                max-width: 300px;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                gap: 0;
+                padding: 5rem 2rem 2rem;
+                transition: right 0.3s ease-in-out;
+                box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+
+            nav ul.active {
+                right: 0;
+            }
+
+            nav li {
+                padding: 1rem 0;
+                border-bottom: 1px solid #e2e8f0;
+            }
+
+            nav li:last-child {
+                border-bottom: none;
+            }
+
+            nav a {
+                display: block;
+                font-size: 1.1rem;
+            }
+
+            .project-image {
+                padding: 1rem;
+            }
+
             .hero-content h1 {
                 font-size: 2.5rem;
             }
@@ -362,9 +549,8 @@
                 font-size: 1.2rem;
             }
 
-            nav ul {
-                flex-direction: column;
-                gap: 1rem;
+            .hero-content .tagline {
+                font-size: 1rem;
             }
 
             section h2 {
@@ -374,17 +560,51 @@
             .container {
                 padding: 3rem 1rem;
             }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-link {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .about-grid,
+            .skills-grid,
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Tablet adjustments */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            nav ul {
+                gap: 1.5rem;
+                padding: 0 1rem;
+            }
+
+            .container {
+                padding: 4rem 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#project">Projects</a></li>
+    <nav role="navigation" aria-label="Main navigation">
+        <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul id="nav-menu">
+            <li><a href="#home" aria-label="Go to home section">Home</a></li>
+            <li><a href="#about" aria-label="Go to about section">About</a></li>
+            <li><a href="#skills" aria-label="Go to skills section">Skills</a></li>
+            <li><a href="#project" aria-label="Go to projects section">Projects</a></li>
+            <li><a href="#contact" aria-label="Go to contact section">Contact</a></li>
         </ul>
     </nav>
 
@@ -409,12 +629,16 @@
         <!-- About Section -->
         <section id="about">
             <h2>About Me</h2>
-            <p style="font-size: 1.1rem; margin-bottom: 2rem; color: var(--text-light);">
-                I’m a data engineer with an electrical engineering background and advanced 
-                data science training, focused on the energy sector. I build lean, 
-                reliable data platforms and analytics that turn operational data into decisions. 
-                I favor <strong>simple, efficient solutions</strong> that deliver quick, measurable 
-                value and grow as needs evolve.
+            <p style="font-size: 1.1rem; margin-bottom: 2rem; color: var(--text-dark); line-height: 1.7;">
+                I'm a data engineer with an electrical engineering background and advanced
+                data science training, focused on the energy sector. I build lean,
+                reliable data platforms and analytics that turn operational data into decisions.
+            </p>
+            <p style="font-size: 1.05rem; margin-bottom: 2rem; color: var(--text-dark); line-height: 1.7;">
+                My approach: <strong>pragmatic solutions over complexity</strong>. I prioritize systems that are
+                simple and maintainable, focused on real business impact, and built iteratively rather than
+                over-engineered. The best data systems solve problems efficiently while remaining cost-effective
+                and scalable.
             </p>
 
             <div class="about-grid">
@@ -426,20 +650,6 @@
                     <p style="margin-top: 1rem;"><strong>Bachelor in Electrical Engineering</strong><br>
                     <span style="color: var(--text-light); font-size: 0.9rem;">EPFL, Lausanne (2016-2020)</span><br>
                     <span style="color: var(--text-light); font-size: 0.85rem;">Including Erasmus year at KIT, Germany</span></p>
-                </div>
-
-                <div class="about-card">
-                    <h4>Engineering Philosophy</h4>
-                    <p style="color: var(--text-light);">
-                        I believe in <strong>pragmatic solutions over complexity</strong>. The best data systems are:
-                    </p>
-                    <ul style="margin-top: 1rem; list-style: none;">
-                        <li style="padding: 0.5rem 0;">🎯 Simple and maintainable</li>
-                        <li style="padding: 0.5rem 0;">⚡ Focused on real business impact</li>
-                        <li style="padding: 0.5rem 0;">🔄 Iterative rather than over-engineered</li>
-                        <li style="padding: 0.5rem 0;">📈 Efficient and cost-effective</li>
-                        <li style="padding: 0.5rem 0;">✅ Built to solve problems</li>
-                    </ul>
                 </div>
 
                 <div class="about-card">
@@ -455,22 +665,6 @@
                         <li style="padding: 0.5rem 0;">🌱 Sustainable energy solutions</li>
                     </ul>
                 </div>
-
-                <div class="about-card">
-                    <h4>Interests & Vision</h4>
-                    <p style="color: var(--text-light);">
-                        I'm deeply interested in how data can accelerate the energy transition and reshape energy
-                        consumption and production behaviors. The massive deployment of photovoltaic (PV) panels has
-                        fundamentally transformed the energy landscape, creating unprecedented demand for sophisticated
-                        forecasting algorithms across multiple use cases, from grid balancing and energy trading to
-                        demand response and storage optimization.
-                    </p>
-                    <p style="color: var(--text-light); margin-top: 1rem;">
-                        Data has never been more central to the energy sector. My goal is to build scalable data
-                        platforms and develop advanced analytics and machine learning solutions that provide actionable insights for
-                        sustainable energy management in this rapidly evolving ecosystem.
-                    </p>
-                </div>
             </div>
 
             <!-- Professional Experience Highlight -->
@@ -482,9 +676,9 @@
                     <strong>2022 - Present</strong>
                 </p>
                 <p style="color: var(--text-dark); font-size: 1.05rem; line-height: 1.8;">
-                    Development of <strong>pragmatic data pipelines using agile framework and CI/CD</strong> methodologies.
-                    Focused on building <strong>simple, maintainable solutions</strong> that deliver measurable business value, optimizing
-                    for impact and efficiency rather than complexity.
+                    Building production data pipelines using <strong>agile methodologies and CI/CD</strong> practices.
+                    Developing ETL solutions, data models, and analytics that deliver measurable business value
+                    across energy forecasting, consumption analysis, and operational optimization use cases.
                 </p>
                 <div style="margin-top: 1.5rem; padding: 1.5rem; background: var(--light-bg); border-radius: 8px; border-left: 3px solid var(--primary-color);">
                     <p style="color: var(--primary-color); font-weight: 600; margin-bottom: 0.5rem;">Key Achievement:</p>
@@ -566,7 +760,7 @@
             <div class="project-showcase">
                 <div class="project-header">
                     <h3>World Triathlon Data Analytics Platform</h3>
-                    <p>
+                    <p style="line-height: 1.7; color: var(--text-dark);">
                         A comprehensive Snowflake-based data warehouse for triathlon race analytics, athlete performance
                         tracking, and competitive insights. This project demonstrates end-to-end data engineering from
                         raw data ingestion to advanced analytical capabilities.
@@ -574,78 +768,111 @@
                 </div>
 
                 <div class="project-image">
-                    <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
-                        <!-- API Source -->
-                        <g transform="translate(50, 100)">
-                            <rect width="120" height="80" rx="8" fill="#fff" stroke="#5b21b6" stroke-width="2"/>
-                            <text x="60" y="35" text-anchor="middle" fill="#5b21b6" font-size="14" font-weight="600">API</text>
-                            <text x="60" y="55" text-anchor="middle" fill="#64748b" font-size="12">World Triathlon</text>
-                        </g>
+                    <svg viewBox="0 0 850 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="triathlon-architecture-title">
+                        <title id="triathlon-architecture-title">World Triathlon Data Analytics Platform Architecture Diagram</title>
 
-                        <!-- Arrow 1 -->
-                        <path d="M 170 140 L 230 140" stroke="#7c3aed" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
-
-                        <!-- Staging Layer -->
-                        <g transform="translate(230, 80)">
-                            <rect width="140" height="120" rx="8" fill="#fff" stroke="#5b21b6" stroke-width="2"/>
-                            <text x="70" y="25" text-anchor="middle" fill="#5b21b6" font-size="14" font-weight="600">Staging Layer</text>
-                            <rect x="20" y="40" width="100" height="20" rx="4" fill="#f3f0ff" stroke="#a78bfa" stroke-width="1"/>
-                            <text x="70" y="54" text-anchor="middle" fill="#5b21b6" font-size="11">Events</text>
-                            <rect x="20" y="65" width="100" height="20" rx="4" fill="#f3f0ff" stroke="#a78bfa" stroke-width="1"/>
-                            <text x="70" y="79" text-anchor="middle" fill="#5b21b6" font-size="11">Programs</text>
-                            <rect x="20" y="90" width="100" height="20" rx="4" fill="#f3f0ff" stroke="#a78bfa" stroke-width="1"/>
-                            <text x="70" y="104" text-anchor="middle" fill="#5b21b6" font-size="11">Results</text>
-                        </g>
-
-                        <!-- Arrow 2 -->
-                        <path d="M 370 140 L 430 140" stroke="#7c3aed" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
-
-                        <!-- Datamart Layer -->
-                        <g transform="translate(430, 60)">
-                            <rect width="190" height="160" rx="8" fill="#fff" stroke="#5b21b6" stroke-width="2"/>
-                            <text x="95" y="25" text-anchor="middle" fill="#5b21b6" font-size="14" font-weight="600">Datamart Layer</text>
-                            <text x="95" y="42" text-anchor="middle" fill="#64748b" font-size="10">Star Schema</text>
-
-                            <!-- Fact table -->
-                            <rect x="65" y="55" width="60" height="50" rx="4" fill="#5b21b6" stroke="none"/>
-                            <text x="95" y="75" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">Fact</text>
-                            <text x="95" y="90" text-anchor="middle" fill="#fff" font-size="9">Results</text>
-
-                            <!-- Dimension tables -->
-                            <rect x="15" y="115" width="50" height="30" rx="4" fill="#a78bfa" stroke="none"/>
-                            <text x="40" y="133" text-anchor="middle" fill="#fff" font-size="9">Athlete</text>
-
-                            <rect x="70" y="115" width="50" height="30" rx="4" fill="#a78bfa" stroke="none"/>
-                            <text x="95" y="133" text-anchor="middle" fill="#fff" font-size="9">Event</text>
-
-                            <rect x="125" y="115" width="50" height="30" rx="4" fill="#a78bfa" stroke="none"/>
-                            <text x="150" y="133" text-anchor="middle" fill="#fff" font-size="9">Program</text>
-                        </g>
-
-                        <!-- Arrow 3 -->
-                        <path d="M 620 140 L 650 140" stroke="#7c3aed" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
-
-                        <!-- Analytics -->
-                        <g transform="translate(650, 100)">
-                            <rect width="120" height="80" rx="8" fill="#fff" stroke="#5b21b6" stroke-width="2"/>
-                            <text x="60" y="30" text-anchor="middle" fill="#5b21b6" font-size="14" font-weight="600">Analytics</text>
-                            <circle cx="35" cy="55" r="3" fill="#7c3aed"/>
-                            <circle cx="50" cy="48" r="3" fill="#7c3aed"/>
-                            <circle cx="65" cy="52" r="3" fill="#7c3aed"/>
-                            <circle cx="80" cy="45" r="3" fill="#7c3aed"/>
-                            <polyline points="35,55 50,48 65,52 80,45" stroke="#7c3aed" stroke-width="2" fill="none"/>
-                        </g>
-
-                        <!-- Arrow marker definition -->
+                        <!-- Gradient Definitions -->
                         <defs>
+                            <linearGradient id="factGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#5b21b6;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="dimGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                            </linearGradient>
+                            <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+                                <feOffset dx="0" dy="2" result="offsetblur"/>
+                                <feComponentTransfer>
+                                    <feFuncA type="linear" slope="0.2"/>
+                                </feComponentTransfer>
+                                <feMerge>
+                                    <feMergeNode/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
                             <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
                                 <polygon points="0 0, 10 3, 0 6" fill="#7c3aed"/>
                             </marker>
                         </defs>
 
-                        <!-- Bottom labels -->
-                        <text x="400" y="320" text-anchor="middle" fill="#5b21b6" font-size="16" font-weight="600">Data Pipeline Architecture</text>
-                        <text x="400" y="345" text-anchor="middle" fill="#64748b" font-size="13">ETL → Staging → Dimensional Model → Business Intelligence</text>
+                        <!-- API Source -->
+                        <g transform="translate(40, 130)">
+                            <rect width="130" height="90" rx="10" fill="#fff" stroke="#5b21b6" stroke-width="2.5" filter="url(#shadow)"/>
+                            <circle cx="65" cy="35" r="18" fill="#f3f0ff" stroke="#7c3aed" stroke-width="2"/>
+                            <path d="M 65 23 L 65 47 M 53 35 L 77 35" stroke="#7c3aed" stroke-width="2.5"/>
+                            <text x="65" y="70" text-anchor="middle" fill="#5b21b6" font-size="15" font-weight="700">API Source</text>
+                        </g>
+
+                        <!-- Arrow 1 -->
+                        <path d="M 170 175 L 220 175" stroke="#7c3aed" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+
+                        <!-- Staging Layer -->
+                        <g transform="translate(220, 120)">
+                            <rect width="140" height="110" rx="10" fill="#fff" stroke="#5b21b6" stroke-width="2.5" filter="url(#shadow)"/>
+                            <text x="70" y="25" text-anchor="middle" fill="#5b21b6" font-size="15" font-weight="700">Staging</text>
+
+                            <rect x="20" y="40" width="100" height="18" rx="4" fill="#faf8ff" stroke="#a78bfa" stroke-width="1.5"/>
+                            <text x="70" y="52" text-anchor="middle" fill="#5b21b6" font-size="11">Events</text>
+
+                            <rect x="20" y="62" width="100" height="18" rx="4" fill="#faf8ff" stroke="#a78bfa" stroke-width="1.5"/>
+                            <text x="70" y="74" text-anchor="middle" fill="#5b21b6" font-size="11">Programs</text>
+
+                            <rect x="20" y="84" width="100" height="18" rx="4" fill="#faf8ff" stroke="#a78bfa" stroke-width="1.5"/>
+                            <text x="70" y="96" text-anchor="middle" fill="#5b21b6" font-size="11">Results</text>
+                        </g>
+
+                        <!-- Arrow 2 -->
+                        <path d="M 360 175 L 420 175" stroke="#7c3aed" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+
+                        <!-- Datamart Layer (Star Schema) -->
+                        <g transform="translate(420, 60)">
+                            <rect width="250" height="230" rx="10" fill="#fff" stroke="#5b21b6" stroke-width="2.5" filter="url(#shadow)"/>
+                            <text x="125" y="25" text-anchor="middle" fill="#5b21b6" font-size="15" font-weight="700">Datamart - Star Schema</text>
+
+                            <!-- Center Fact Table -->
+                            <rect x="95" y="95" width="60" height="55" rx="6" fill="url(#factGrad)" stroke="#5b21b6" stroke-width="2" filter="url(#shadow)"/>
+                            <text x="125" y="118" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">FACT</text>
+                            <text x="125" y="135" text-anchor="middle" fill="#fff" font-size="10">Results</text>
+
+                            <!-- Dimension: Athlete -->
+                            <rect x="15" y="65" width="60" height="45" rx="6" fill="url(#dimGrad)" stroke="#8b5cf6" stroke-width="2"/>
+                            <text x="45" y="85" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">Athlete</text>
+                            <line x1="75" y1="95" x2="95" y2="110" stroke="#c4b5fd" stroke-width="2.5" opacity="0.6"/>
+
+                            <!-- Dimension: Event -->
+                            <rect x="15" y="165" width="60" height="45" rx="6" fill="url(#dimGrad)" stroke="#8b5cf6" stroke-width="2"/>
+                            <text x="45" y="185" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">Event</text>
+                            <line x1="75" y1="177" x2="95" y2="140" stroke="#c4b5fd" stroke-width="2.5" opacity="0.6"/>
+
+                            <!-- Dimension: Program -->
+                            <rect x="175" y="165" width="60" height="45" rx="6" fill="url(#dimGrad)" stroke="#8b5cf6" stroke-width="2"/>
+                            <text x="205" y="185" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">Program</text>
+                            <line x1="175" y1="177" x2="155" y2="140" stroke="#c4b5fd" stroke-width="2.5" opacity="0.6"/>
+                        </g>
+
+                        <!-- Arrow 3 -->
+                        <path d="M 670 175 L 720 175" stroke="#7c3aed" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+
+                        <!-- Analytics -->
+                        <g transform="translate(720, 125)">
+                            <rect width="120" height="100" rx="10" fill="#fff" stroke="#5b21b6" stroke-width="2.5" filter="url(#shadow)"/>
+                            <text x="60" y="28" text-anchor="middle" fill="#5b21b6" font-size="15" font-weight="700">Analytics</text>
+
+                            <!-- Chart visualization -->
+                            <g transform="translate(20, 42)">
+                                <rect x="0" y="30" width="10" height="18" rx="2" fill="#c4b5fd"/>
+                                <rect x="16" y="22" width="10" height="26" rx="2" fill="#a78bfa"/>
+                                <rect x="32" y="18" width="10" height="30" rx="2" fill="#8b5cf6"/>
+                                <rect x="48" y="10" width="10" height="38" rx="2" fill="#7c3aed"/>
+                                <rect x="64" y="14" width="10" height="34" rx="2" fill="#6d28d9"/>
+                                <line x1="0" y1="52" x2="78" y2="52" stroke="#e2e8f0" stroke-width="1.5"/>
+                            </g>
+                        </g>
+
+                        <!-- Bottom label -->
+                        <text x="425" y="350" text-anchor="middle" fill="#5b21b6" font-size="16" font-weight="700">Data Pipeline Architecture</text>
                     </svg>
                 </div>
 
@@ -663,136 +890,44 @@
 
                 <div class="project-details">
                     <div class="project-section">
-                        <h4>🏗️ Architecture</h4>
-                        <p>Three-layer data architecture designed for scalability and automated refresh:</p>
-                        <div class="architecture-flow">
-                            Raw Data → Staging Layer → Datamart Layer → Analytics
-                        </div>
-                        <ul style="list-style: none; margin-top: 1rem;">
-                            <li style="padding: 0.5rem 0;"><strong>Staging:</strong> Raw data ingestion from World Triathlon APIs with initial processing</li>
-                            <li style="padding: 0.5rem 0;"><strong>Datamart:</strong> Dimensional model with dynamic tables (6-hour automated refresh)</li>
-                            <li style="padding: 0.5rem 0;"><strong>Analytics:</strong> Business intelligence queries and performance insights</li>
-                        </ul>
+                        <h4>📊 Star Schema Implementation</h4>
+                        <p style="line-height: 1.7; color: var(--text-dark); margin-bottom: 1rem;">The datamart layer implements a star schema with automated 6-hour refresh cycles using Snowflake Dynamic Tables. Beyond the core results fact table, the model includes additional fact tables for world rankings and race start lists.</p>
                     </div>
 
                     <div class="project-section">
-                        <h4>📊 Data Model</h4>
-                        <p>Implemented a star schema with the following components:</p>
-
-                        <div class="feature-grid">
-                            <div class="feature-item">
-                                <h5>Dimension Tables</h5>
-                                <ul>
-                                    <li>dim_athlete (demographics & categories)</li>
-                                    <li>dim_event (competitions & specifications)</li>
-                                    <li>dim_program (race categories & distances)</li>
-                                </ul>
-                            </div>
-                            <div class="feature-item">
-                                <h5>Fact Tables</h5>
-                                <ul>
-                                    <li>fct_results (split times, rankings, positions)</li>
-                                    <li>fct_ranking (world rankings & points)</li>
-                                    <li>fct_start_list (race entries)</li>
-                                </ul>
-                            </div>
-                        </div>
+                        <h4>⚙️ Technical Implementation</h4>
+                        <p style="line-height: 1.7; color: var(--text-dark);">
+                            Built with <strong>Snowflake Dynamic Tables</strong> for automated transformation and refresh orchestration.
+                            Implements <strong>daily ranking historization</strong> to track athlete world ranking evolution over time.
+                            Advanced SQL techniques including JSON parsing with FLATTEN, window functions for rankings, and complex CTEs.
+                            Integrated with World Triathlon APIs using external access integrations and Git repository for version control.
+                        </p>
                     </div>
 
                     <div class="project-section">
-                        <h4>⚙️ Key Technical Implementations</h4>
-
-                        <div class="feature-grid">
-                            <div class="feature-item">
-                                <h5>Dynamic Tables</h5>
-                                <ul>
-                                    <li>Automated 6-hour refresh cycle</li>
-                                    <li>Integrated transformation logic</li>
-                                    <li>Warehouse resource optimization</li>
-                                    <li>Dependency management</li>
-                                </ul>
-                            </div>
-
-                            <div class="feature-item">
-                                <h5>Advanced SQL Processing</h5>
-                                <ul>
-                                    <li>JSON parsing with FLATTEN</li>
-                                    <li>Window functions for rankings</li>
-                                    <li>Complex CTEs for data transformation</li>
-                                    <li>Time-based calculations</li>
-                                </ul>
-                            </div>
-
-                            <div class="feature-item">
-                                <h5>Orchestration</h5>
-                                <ul>
-                                    <li>Scheduled task automation</li>
-                                    <li>Stored procedure deployment</li>
-                                    <li>Error handling & logging</li>
-                                    <li>Manual refresh capabilities</li>
-                                </ul>
-                            </div>
-
-                            <div class="feature-item">
-                                <h5>Integration</h5>
-                                <ul>
-                                    <li>External API access integration</li>
-                                    <li>Git repository integration</li>
-                                    <li>Network rule configuration</li>
-                                    <li>Security & access controls</li>
-                                </ul>
-                            </div>
-                        </div>
+                        <h4>📈 Analytics Use Cases</h4>
+                        <p style="line-height: 1.7; color: var(--text-dark);">
+                            Enables performance analysis across swim/bike/run splits, pace calculations, position tracking, and leader gaps.
+                            Supports competitive intelligence through world ranking categorization, performance bucketing, race dynamics analysis,
+                            and category comparisons for athlete evaluation.
+                        </p>
                     </div>
 
                     <div class="project-section">
-                        <h4>📈 Analytics Capabilities</h4>
-
-                        <div class="feature-grid">
-                            <div class="feature-item">
-                                <h5>Performance Analysis</h5>
-                                <ul>
-                                    <li>Split time analysis (swim/bike/run)</li>
-                                    <li>Pace calculations by distance</li>
-                                    <li>Position tracking across segments</li>
-                                    <li>Leader gap analysis</li>
-                                    <li>Historical trend tracking</li>
-                                </ul>
-                            </div>
-
-                            <div class="feature-item">
-                                <h5>Competitive Intelligence</h5>
-                                <ul>
-                                    <li>World ranking categorization</li>
-                                    <li>Performance buckets (top 10/20/30...)</li>
-                                    <li>Race dynamics analysis</li>
-                                    <li>Category comparisons (Elite, U23)</li>
-                                    <li>Course-specific performance</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-section">
-                        <h4>🎯 Project Outcomes</h4>
-                        <ul style="list-style: none;">
-                            <li style="padding: 0.5rem 0;">✓ Automated data pipeline processing thousands of race results</li>
-                            <li style="padding: 0.5rem 0;">✓ Real-time analytics with 6-hour data freshness</li>
-                            <li style="padding: 0.5rem 0;">✓ Scalable architecture supporting multi-year historical analysis</li>
-                            <li style="padding: 0.5rem 0;">✓ Advanced performance metrics for athlete evaluation</li>
-                            <li style="padding: 0.5rem 0;">✓ Comprehensive competitive intelligence platform</li>
-                        </ul>
+                        <h4>🎯 Results</h4>
+                        <p style="line-height: 1.7; color: var(--text-dark);">
+                            Automated pipeline processing thousands of race results with 6-hour data freshness.
+                            Scalable architecture supporting multi-year historical analysis and comprehensive competitive intelligence.
+                        </p>
                     </div>
                 </div>
 
                 <div style="margin-top: 2rem; padding: 1.5rem; background: #f3f0ff; border-radius: 10px; border-left: 3px solid var(--primary-color);">
-                    <h4 style="color: var(--primary-color); margin-bottom: 0.75rem; font-size: 1.1rem;">Skills Demonstrated</h4>
                     <p style="color: var(--text-dark); line-height: 1.7;">
-                        This project showcases the full data engineering lifecycle: from requirements gathering and
-                        architecture design, through implementation of ETL pipelines and dimensional modeling, to
-                        deployment of automated orchestration and delivery of actionable analytics. It demonstrates
-                        proficiency in cloud data platforms, SQL optimization, API integration, and the ability to
-                        translate complex data requirements into scalable technical solutions.
+                        <strong style="color: var(--primary-color);">Full-stack data engineering:</strong>
+                        ETL pipeline design, dimensional modeling, automated orchestration, and analytics delivery.
+                        Demonstrates proficiency in cloud data platforms, advanced SQL, API integration, and translating
+                        business requirements into scalable technical solutions.
                     </p>
                 </div>
             </div>
@@ -804,14 +939,15 @@
                     <p style="color: var(--text-light); font-size: 1rem; margin-bottom: 0.5rem;">
                         <strong>Academic Research Project | EPFL | Spring 2021</strong>
                     </p>
-                    <p>
+                    <p style="line-height: 1.7; color: var(--text-dark);">
                         Advanced research project applying deep reinforcement learning to optimize microgrid control systems.
                         Directly relevant to modern energy challenges of integrating renewable energy sources and storage systems.
                     </p>
                 </div>
 
                 <div class="project-image">
-                    <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="microgrid-architecture-title">
+                        <title id="microgrid-architecture-title">Microgrid System Architecture with AI Control Diagram</title>
                         <!-- Solar PV Array -->
                         <g transform="translate(100, 50)">
                             <rect width="160" height="100" rx="8" fill="#fff" stroke="#5b21b6" stroke-width="2"/>
@@ -916,7 +1052,7 @@
                 <div class="project-details">
                     <div class="project-section">
                         <h4>🎯 Project Objective</h4>
-                        <p>
+                        <p style="line-height: 1.7; color: var(--text-dark);">
                             Implementation of <strong>deep reinforcement learning agents</strong> to intelligently control
                             a complex microgrid system composed of variable loads, battery storage systems, and
                             photovoltaic (PV) power stations. The goal was to optimize energy distribution, minimize costs,
@@ -950,7 +1086,7 @@
 
                     <div class="project-section">
                         <h4>⚡ Relevance to Energy Transition</h4>
-                        <p style="line-height: 1.8;">
+                        <p style="line-height: 1.7; color: var(--text-dark);">
                             This research directly addresses one of the most critical challenges in modern energy systems:
                             <strong>intelligently managing distributed energy resources</strong>. As the penetration of
                             solar PV increases, grid operators and energy companies face complex optimization problems
@@ -971,6 +1107,41 @@
                 </div>
             </div>
         </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <p class="contact-intro">
+                Interested in data engineering, analytics, or collaboration opportunities?
+                Let's connect.
+            </p>
+
+            <div class="contact-links">
+                <a href="https://www.linkedin.com/in/sebastien-jeanfavre" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn">
+                    <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    <strong>LinkedIn</strong>
+                    <span>Professional Network</span>
+                </a>
+
+                <a href="https://github.com/sebastienjeanfavre" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="View GitHub profile">
+                    <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    <strong>GitHub</strong>
+                    <span>Code & Projects</span>
+                </a>
+
+                <a href="mailto:sjeanfavre@gmail.com" class="contact-link" aria-label="Send email">
+                    <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/>
+                    </svg>
+                    <strong>Email</strong>
+                    <span>sjeanfavre@gmail.com</span>
+                </a>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -978,5 +1149,48 @@
         <p>&copy; 2025 Sébastien Jeanfavre | Data Engineer Portfolio</p>
         <p style="margin-top: 0.5rem; opacity: 0.8;">Driving the energy transition through data excellence</p>
     </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('#nav-menu a');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+
+            // Update aria-expanded for accessibility
+            const isExpanded = menuToggle.classList.contains('active');
+            menuToggle.setAttribute('aria-expanded', isExpanded);
+        });
+
+        // Close menu when clicking on a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    </script>
 </body>
 </html>

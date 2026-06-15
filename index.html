@@ -650,73 +650,30 @@
 
     <!-- Main Content -->
     <main class="container">
-        <!-- About Section -->
-        <section id="about">
-            <h2>About Me</h2>
-            <p style="font-size: 1.1rem; margin-bottom: 2rem; color: var(--text-dark); line-height: 1.7;">
-                I'm a data engineer with an electrical engineering background and advanced
-                data science training, focused on the energy sector. I build lean,
-                reliable data platforms and analytics that turn operational data into decisions.
-            </p>
-            <p style="font-size: 1.05rem; margin-bottom: 2rem; color: var(--text-dark); line-height: 1.7;">
-                My approach: <strong>pragmatic solutions over complexity</strong>. I prioritize systems that are
-                simple and maintainable, focused on real business impact, and built iteratively rather than
-                over-engineered. The best data systems solve problems efficiently while remaining cost-effective
-                and scalable.
-            </p>
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>Experience</h2>
 
-            <div class="about-grid">
-                <div class="about-card">
-                    <h4>Education</h4>
-                    <p><strong>Master in Electrical Engineering</strong><br>
-                    <span style="color: var(--text-light); font-size: 0.95rem;">Specialization in Data Science and Systems</span><br>
-                    <span style="color: var(--text-light); font-size: 0.9rem;">EPFL, Lausanne (2020-2023)</span></p>
-                    <p style="margin-top: 1rem;"><strong>Bachelor in Electrical Engineering</strong><br>
-                    <span style="color: var(--text-light); font-size: 0.9rem;">EPFL, Lausanne (2016-2020)</span><br>
-                    <span style="color: var(--text-light); font-size: 0.85rem;">Including Erasmus year at KIT, Germany</span></p>
-                </div>
-
-                <div class="about-card">
-                    <h4>Professional Focus</h4>
-                    <p style="color: var(--text-light);">
-                        Data engineering and analytics in the energy sector, with emphasis on:
-                    </p>
-                    <ul style="margin-top: 1rem; list-style: none;">
-                        <li style="padding: 0.5rem 0;">⚡ Energy data analytics</li>
-                        <li style="padding: 0.5rem 0;">📊 Consumption pattern analysis</li>
-                        <li style="padding: 0.5rem 0;">🔋 Production optimization & forecasting</li>
-                        <li style="padding: 0.5rem 0;">☀️ PV panel analytics & grid integration</li>
-                        <li style="padding: 0.5rem 0;">🌱 Sustainable energy solutions</li>
-                    </ul>
-                </div>
+            <div class="experience-entry">
+                <div class="experience-company">Romande Energie SA</div>
+                <div class="experience-role">Data Engineer → Data Architect · Promoted May 2026</div>
+                <div class="experience-period">2022 – present</div>
+                <ul class="experience-bullets">
+                    <li>Built and operates the MLOps pipeline for energy demand forecasting: 7 models in production, daily retraining, 15-min inference intervals — delivering material cost savings by reducing energy imbalance on the grid</li>
+                    <li>Co-leading adoption of dbt across the analytics platform with a team of data architects, standardising transformations across the full data warehouse</li>
+                    <li>Designed the sweep join method for data vault bridge tables — enabling efficient and cost-effective time-interval joins across 20+ datamarts consumed by 50+ engineers and analysts</li>
+                    <li>Developed end-to-end data pipelines for ingestion, modelling, and serving in a Snowflake / GitLab CI/CD environment</li>
+                </ul>
             </div>
 
-            <!-- Professional Experience Highlight -->
-            <div style="margin-top: 3rem; padding: 2.5rem; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); border-left: 4px solid var(--primary-color);">
-                <h3 style="color: var(--primary-color); font-size: 1.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
-                    <span style="font-size: 2rem;">⚡</span> Data Engineer @ Romande Energie SA
-                </h3>
-                <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 1.5rem;">
-                    <strong>2022 - Present</strong>
-                </p>
-                <p style="color: var(--text-dark); font-size: 1.05rem; line-height: 1.8;">
-                    Building production data pipelines using <strong>agile methodologies and CI/CD</strong> practices.
-                    Developing ETL solutions, data models, and analytics that deliver measurable business value
-                    across energy forecasting, consumption analysis, and operational optimization use cases.
-                </p>
-                <div style="margin-top: 1.5rem; padding: 1.5rem; background: var(--light-bg); border-radius: 8px; border-left: 3px solid var(--primary-color);">
-                    <p style="color: var(--primary-color); font-weight: 600; margin-bottom: 0.5rem;">Key Achievement:</p>
-                    <p style="color: var(--text-dark); line-height: 1.7;">
-                        Deployed an <strong>end-to-end forecasting pipeline in production</strong> integrating
-                        forecasting algorithms to <strong>reduce balancing energy costs</strong>,
-                        demonstrating direct business impact of data-driven energy optimization.
-                    </p>
-                </div>
-                <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 2px solid var(--light-bg);">
-                    <p style="color: var(--text-light); font-size: 0.95rem;">
-                        <strong style="color: var(--text-dark);">Technologies:</strong> Python, SQL, Snowflake, CI/CD (GitLab), Agile methodologies
-                    </p>
-                </div>
+            <div class="experience-entry">
+                <div class="experience-company">Swiss Triathlon Analytics Platform</div>
+                <div class="experience-role">Independent Project</div>
+                <div class="experience-period">2025</div>
+                <ul class="experience-bullets">
+                    <li>Built and sold a race analytics platform to the Swiss Triathlon Federation covering 140,000+ athletes and 40+ years of official race results</li>
+                    <li>Primary use case: automated talent detection across age categories and disciplines</li>
+                </ul>
             </div>
         </section>
 

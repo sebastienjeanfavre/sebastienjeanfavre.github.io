@@ -3,34 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="Data Engineer specializing in energy sector analytics, Snowflake, Python, and ETL pipelines. Building scalable data platforms for the energy transition.">
+    <meta name="description" content="Data Architect specializing in Snowflake, dbt, MLOps, and data vault modeling. Building scalable data platforms for the energy sector in Switzerland.">
     <meta name="author" content="Sébastien Jeanfavre">
-    <meta name="keywords" content="Data Engineer, Snowflake, Python, Energy Analytics, ETL, Data Warehouse, Switzerland">
+    <meta name="keywords" content="Data Architect, Snowflake, dbt, MLOps, Data Vault, Python, Energy Analytics, Switzerland">
 
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sebastienjeanfavre.github.io/">
-    <meta property="og:title" content="Sébastien Jeanfavre - Data Engineer">
-    <meta property="og:description" content="Data Engineer @ Romande Energie | Snowflake SnowPro Certified | Building data platforms for the energy transition">
+    <meta property="og:title" content="Sébastien Jeanfavre — Data Architect">
+    <meta property="og:description" content="Data Architect @ Romande Energie SA | Snowflake SnowPro Certified | Building scalable data platforms for the energy sector">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Sébastien Jeanfavre - Data Engineer">
-    <meta name="twitter:description" content="Data Engineer specializing in energy sector analytics and scalable data platforms">
+    <meta name="twitter:title" content="Sébastien Jeanfavre — Data Architect">
+    <meta name="twitter:description" content="Data Architect specializing in Snowflake, dbt, MLOps, and scalable data platforms for the energy sector">
 
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://sebastienjeanfavre.github.io/">
 
-    <title>Data Engineer Portfolio - Sébastien Jeanfavre</title>
+    <title>Sébastien Jeanfavre — Data Architect</title>
 
-    <!-- Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Sébastien Jeanfavre",
-      "jobTitle": "Data Engineer",
+      "jobTitle": "Data Architect",
       "worksFor": {
         "@type": "Organization",
         "name": "Romande Energie SA"
@@ -39,7 +37,7 @@
         "@type": "EducationalOrganization",
         "name": "EPFL - École polytechnique fédérale de Lausanne"
       },
-      "knowsAbout": ["Data Engineering", "Snowflake", "Python", "SQL", "ETL", "Energy Analytics", "Machine Learning"],
+      "knowsAbout": ["Data Architecture", "Snowflake", "dbt", "Python", "SQL", "MLOps", "Data Vault", "Energy Analytics"],
       "url": "https://sebastienjeanfavre.github.io/"
     }
     </script>
@@ -60,9 +58,7 @@
             --accent: #7c3aed;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
@@ -100,11 +96,9 @@
             transition: color 0.3s;
         }
 
-        nav a:hover {
-            color: var(--primary-color);
-        }
+        nav a:hover { color: var(--primary-color); }
 
-        /* Hamburger Menu */
+        /* Hamburger */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -131,19 +125,11 @@
             transform-origin: center;
         }
 
-        .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
-        }
+        .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(8px, -8px); }
 
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(8px, -8px);
-        }
-
-        /* Header/Hero Section */
+        /* Hero */
         header {
             min-height: 100vh;
             display: flex;
@@ -151,40 +137,69 @@
             justify-content: center;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            text-align: center;
             padding: 2rem;
         }
 
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .hero-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.8);
+            flex-shrink: 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
             animation: fadeInUp 0.8s ease-out;
         }
 
-        .hero-content .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
+        .hero-text .subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
             opacity: 0.95;
             animation: fadeInUp 0.8s ease-out 0.2s backwards;
         }
 
-        .hero-content .tagline {
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-            opacity: 0.9;
+        .hero-text .tagline {
+            font-size: 1rem;
+            opacity: 0.85;
+            margin-bottom: 1.5rem;
             animation: fadeInUp 0.8s ease-out 0.4s backwards;
         }
 
+        .hero-links {
+            display: flex;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+        }
+
+        .hero-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            opacity: 0.9;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            padding-bottom: 2px;
+            transition: opacity 0.2s;
+        }
+
+        .hero-links a:hover { opacity: 1; }
+
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
         /* Container */
@@ -194,10 +209,7 @@
             padding: 6rem 2rem;
         }
 
-        /* Section Styles */
-        section {
-            margin-bottom: 5rem;
-        }
+        section { margin-bottom: 5rem; }
 
         section h2 {
             font-size: 2.5rem;
@@ -208,203 +220,246 @@
             padding-bottom: 0.75rem;
         }
 
-        section h3 {
-            font-size: 1.8rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        /* About Section */
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-            max-width: 900px;
-        }
-
-        .about-card {
+        /* Experience */
+        .experience-entry {
             background: white;
+            border-radius: 12px;
             padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .about-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
-        }
-
-        .about-card h4 {
-            font-size: 1.3rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .skill-category {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        }
-
-        .skill-category h4 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .skill-category ul {
-            list-style: none;
-        }
-
-        .skill-category li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .skill-category li:before {
-            content: "▹";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-size: 1.2rem;
-        }
-
-        /* Project Section */
-        .project-showcase {
-            background: white;
-            padding: 3rem 2rem;
-            border-radius: 12px;
-            margin-top: 2rem;
+            margin-bottom: 2rem;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             border-left: 4px solid var(--primary-color);
         }
 
-        .project-showcase h3 {
-            color: var(--primary-color);
-            font-size: 2rem;
-            margin-top: 0;
-        }
-
-        .project-header {
-            margin-bottom: 2rem;
-        }
-
-        .project-header p {
-            font-size: 1.05rem;
-            color: var(--text-dark);
-            margin-top: 1rem;
-        }
-
-        .project-details {
-            background: var(--light-bg);
-            padding: 2rem;
-            border-radius: 12px;
-            margin-top: 2rem;
-        }
-
-        .project-section {
-            margin-bottom: 2rem;
-        }
-
-        .project-section h4 {
+        .experience-company {
             font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-top: 1rem;
-        }
-
-        .tech-tag {
-            background: #faf8ff;
-            color: var(--primary-color);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            border: 1px solid #e9d5ff;
-        }
-
-        .architecture-flow {
-            background: #f3f0ff;
+            font-weight: 700;
             color: var(--text-dark);
-            padding: 1.5rem;
-            border-radius: 8px;
-            font-family: monospace;
-            text-align: center;
-            font-size: 1.05rem;
-            margin: 1rem 0;
-            letter-spacing: 0.5px;
-            border: 1px solid #e9d5ff;
+            margin-bottom: 0.2rem;
         }
 
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .feature-item {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .feature-item h5 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
+        .experience-role {
+            font-size: 0.95rem;
             color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.15rem;
         }
 
-        .feature-item ul {
-            list-style: none;
-            margin-top: 0.5rem;
+        .experience-period {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
         }
 
-        .feature-item li {
-            padding: 0.3rem 0;
-            padding-left: 1.5rem;
+        .experience-bullets { list-style: none; }
+
+        .experience-bullets li {
+            padding: 0.5rem 0 0.5rem 1.5rem;
             position: relative;
+            color: var(--text-dark);
+            line-height: 1.7;
+            border-bottom: 1px solid #f1f5f9;
         }
 
-        .feature-item li:before {
-            content: "✓";
+        .experience-bullets li:last-child { border-bottom: none; }
+
+        .experience-bullets li::before {
+            content: "▹";
             position: absolute;
             left: 0;
             color: var(--accent);
         }
 
-        .code-highlight {
-            background: #1e293b;
-            color: #e2e8f0;
-            padding: 1rem;
-            border-radius: 5px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            margin: 1rem 0;
-            overflow-x: auto;
+        /* Skills */
+        .skills-groups {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
 
-        /* Contact Section */
+        .skill-group {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .skill-group h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: #faf8ff;
+            color: var(--primary-color);
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border: 1px solid #e9d5ff;
+        }
+
+        /* Education */
+        .education-entry {
+            background: white;
+            border-radius: 12px;
+            padding: 1.75rem 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .education-degree {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.2rem;
+        }
+
+        .education-school {
+            font-size: 0.95rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.15rem;
+        }
+
+        .education-period {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+        }
+
+        .education-sub {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .education-projects { list-style: none; margin-top: 0.5rem; }
+
+        .education-projects li {
+            padding: 0.3rem 0 0.3rem 1.5rem;
+            position: relative;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .education-projects li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .education-continuing {
+            background: white;
+            border-radius: 12px;
+            padding: 1.75rem 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .education-continuing h3 {
+            font-size: 0.82rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            margin-bottom: 1.25rem;
+            margin-top: 0;
+        }
+
+        .cert-entry {
+            padding: 0.85rem 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .cert-entry:last-child { border-bottom: none; }
+
+        .cert-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        .cert-meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+            line-height: 1.5;
+        }
+
+        .cert-badge {
+            display: inline-block;
+            background: #f0fdf4;
+            color: #16a34a;
+            border: 1px solid #bbf7d0;
+            border-radius: 12px;
+            padding: 0.1rem 0.6rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+
+        .cert-badge-progress {
+            background: #fefce8;
+            color: #ca8a04;
+            border-color: #fde68a;
+        }
+
+        /* Writing */
+        .writing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .writing-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.75rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-top: 3px solid var(--primary-color);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .writing-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .writing-card h3 {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+            margin-top: 0;
+            line-height: 1.4;
+        }
+
+        .writing-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .writing-link {
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Contact */
         #contact {
             text-align: center;
             background: white;
@@ -476,31 +531,11 @@
             padding: 2rem;
         }
 
-        .project-image {
-            width: 100%;
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 2rem;
-            background: #f3f0ff;
-            border-radius: 12px;
-            border: 1px solid #e9d5ff;
-        }
-
-        .project-image svg {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
-            .menu-toggle {
-                display: flex;
-            }
+            .menu-toggle { display: flex; }
 
-            nav {
-                position: relative;
-            }
+            nav { position: relative; }
 
             nav ul {
                 position: fixed;
@@ -519,47 +554,37 @@
                 z-index: 999;
             }
 
-            nav ul.active {
-                right: 0;
-            }
+            nav ul.active { right: 0; }
 
             nav li {
                 padding: 1rem 0;
                 border-bottom: 1px solid #e2e8f0;
             }
 
-            nav li:last-child {
-                border-bottom: none;
-            }
+            nav li:last-child { border-bottom: none; }
 
             nav a {
                 display: block;
                 font-size: 1.1rem;
             }
 
-            .project-image {
-                padding: 1rem;
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
             }
 
-            .hero-content h1 {
-                font-size: 2.5rem;
+            .hero-photo {
+                width: 140px;
+                height: 140px;
             }
 
-            .hero-content .subtitle {
-                font-size: 1.2rem;
-            }
+            .hero-text h1 { font-size: 2.2rem; }
+            .hero-text .subtitle { font-size: 1.1rem; }
+            .hero-links { justify-content: center; }
 
-            .hero-content .tagline {
-                font-size: 1rem;
-            }
+            section h2 { font-size: 2rem; }
 
-            section h2 {
-                font-size: 2rem;
-            }
-
-            .container {
-                padding: 3rem 1rem;
-            }
+            .container { padding: 3rem 1rem; }
 
             .contact-links {
                 flex-direction: column;
@@ -571,23 +596,19 @@
                 max-width: 300px;
             }
 
-            .about-grid,
-            .skills-grid,
-            .feature-grid {
+            .skills-groups,
+            .writing-grid {
                 grid-template-columns: 1fr;
             }
         }
 
-        /* Tablet adjustments */
         @media (max-width: 1024px) and (min-width: 769px) {
             nav ul {
                 gap: 1.5rem;
                 padding: 0 1rem;
             }
 
-            .container {
-                padding: 4rem 1.5rem;
-            }
+            .container { padding: 4rem 1.5rem; }
         }
     </style>
 </head>
@@ -601,9 +622,10 @@
         </button>
         <ul id="nav-menu">
             <li><a href="#home" aria-label="Go to home section">Home</a></li>
-            <li><a href="#about" aria-label="Go to about section">About</a></li>
+            <li><a href="#experience" aria-label="Go to experience section">Experience</a></li>
             <li><a href="#skills" aria-label="Go to skills section">Skills</a></li>
-            <li><a href="#project" aria-label="Go to projects section">Projects</a></li>
+            <li><a href="#education" aria-label="Go to education section">Education</a></li>
+            <li><a href="#writing" aria-label="Go to writing section">Writing</a></li>
             <li><a href="#contact" aria-label="Go to contact section">Contact</a></li>
         </ul>
     </nav>
@@ -611,15 +633,17 @@
     <!-- Hero Section -->
     <header id="home">
         <div class="hero-content">
-            <h1>Sébastien Jeanfavre</h1>
-            <div class="subtitle">Data Engineer @ Romande Energie | Switzerland</div>
-            <p class="tagline">
-                Bridging engineering and data to drive the energy transition.
-            </p>
-            <div style="margin-top: 2rem; display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; opacity: 0.9;">
-                <span>🇫🇷 French (Native)</span>
-                <span>🇬🇧 English (C1)</span>
-                <span>🇩🇪 German (Fluent)</span>
+            <img src="profile_img_small.jpg" alt="Sébastien Jeanfavre" class="hero-photo">
+            <div class="hero-text">
+                <h1>Sébastien Jeanfavre</h1>
+                <div class="subtitle">Data Architect @ Romande Energie SA · Switzerland</div>
+                <p class="tagline">Building scalable data platforms for the energy sector · Snowflake SnowPro Certified</p>
+                <div class="hero-links">
+                    <a href="mailto:sjeanfavre@gmail.com">Email</a>
+                    <a href="https://www.linkedin.com/in/sebastienjeanfavre/" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="https://github.com/sebastienjeanfavre" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://medium.com/@sjeanfavre" target="_blank" rel="noopener">Medium</a>
+                </div>
             </div>
         </div>
     </header>

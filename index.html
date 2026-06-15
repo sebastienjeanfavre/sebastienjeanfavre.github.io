@@ -728,358 +728,54 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="project">
-            <h2>Projects</h2>
+        <!-- Education Section -->
+        <section id="education">
+            <h2>Education</h2>
 
-            <div class="project-showcase">
-                <div class="project-header">
-                    <h3>World Triathlon Data Analytics Platform</h3>
-                    <p style="line-height: 1.7; color: var(--text-dark);">
-                        A comprehensive Snowflake-based data warehouse for triathlon race analytics, athlete performance
-                        tracking, and competitive insights. This project demonstrates end-to-end data engineering from
-                        raw data ingestion to advanced analytical capabilities.
-                    </p>
-                </div>
-
-                <div class="project-image">
-                    <svg viewBox="0 0 850 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="triathlon-architecture-title">
-                        <title id="triathlon-architecture-title">World Triathlon Data Analytics Platform Architecture Diagram</title>
-
-                        <!-- Gradient Definitions -->
-                        <defs>
-                            <linearGradient id="factGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#5b21b6;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
-                            </linearGradient>
-                            <linearGradient id="dimGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
-                            </linearGradient>
-                            <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-                                <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
-                                <feOffset dx="0" dy="2" result="offsetblur"/>
-                                <feComponentTransfer>
-                                    <feFuncA type="linear" slope="0.2"/>
-                                </feComponentTransfer>
-                                <feMerge>
-                                    <feMergeNode/>
-                                    <feMergeNode in="SourceGraphic"/>
-                                </feMerge>
-                            </filter>
-                            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                                <polygon points="0 0, 10 3, 0 6" fill="#7c3aed"/>
-                            </marker>
-                        </defs>
-
-                        <!-- API Source -->
-                        <g transform="translate(40, 130)">
-                            <rect width="130" height="90" rx="10" fill="#fff" stroke="#5b21b6" stroke-width="2.5" filter="url(#shadow)"/>
-                            <circle cx="65" cy="35" r="18" fill="#f3f0ff" stroke="#7c3aed" stroke-width="2"/>
-                            <path d="M 65 23 L 65 47 M 53 35 L 77 35" stroke="#7c3aed" stroke-width="2.5"/>
-                            <text x="65" y="70" text-anchor="middle" fill="#5b21b6" font-size="15" font-weight="700">API Source</text>
-                        </g>
-
-                        <!-- Arrow 1 -->
-                        <path d="M 170 175 L 220 175" stroke="#7c3aed" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
-
-                        <!-- Staging Layer -->
-                        <g transform="translate(220, 120)">
-                            <rect width="140" height="110" rx="10" fill="#fff" stroke="#5b21b6" stroke-width="2.5" filter="url(#shadow)"/>
-                            <text x="70" y="25" text-anchor="middle" fill="#5b21b6" font-size="15" font-weight="700">Staging</text>
-
-                            <rect x="20" y="40" width="100" height="18" rx="4" fill="#faf8ff" stroke="#a78bfa" stroke-width="1.5"/>
-                            <text x="70" y="52" text-anchor="middle" fill="#5b21b6" font-size="11">Events</text>
-
-                            <rect x="20" y="62" width="100" height="18" rx="4" fill="#faf8ff" stroke="#a78bfa" stroke-width="1.5"/>
-                            <text x="70" y="74" text-anchor="middle" fill="#5b21b6" font-size="11">Programs</text>
-
-                            <rect x="20" y="84" width="100" height="18" rx="4" fill="#faf8ff" stroke="#a78bfa" stroke-width="1.5"/>
-                            <text x="70" y="96" text-anchor="middle" fill="#5b21b6" font-size="11">Results</text>
-                        </g>
-
-                        <!-- Arrow 2 -->
-                        <path d="M 360 175 L 420 175" stroke="#7c3aed" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
-
-                        <!-- Datamart Layer (Star Schema) -->
-                        <g transform="translate(420, 60)">
-                            <rect width="250" height="230" rx="10" fill="#fff" stroke="#5b21b6" stroke-width="2.5" filter="url(#shadow)"/>
-                            <text x="125" y="25" text-anchor="middle" fill="#5b21b6" font-size="15" font-weight="700">Datamart - Star Schema</text>
-
-                            <!-- Center Fact Table -->
-                            <rect x="95" y="95" width="60" height="55" rx="6" fill="url(#factGrad)" stroke="#5b21b6" stroke-width="2" filter="url(#shadow)"/>
-                            <text x="125" y="118" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">FACT</text>
-                            <text x="125" y="135" text-anchor="middle" fill="#fff" font-size="10">Results</text>
-
-                            <!-- Dimension: Athlete -->
-                            <rect x="15" y="65" width="60" height="45" rx="6" fill="url(#dimGrad)" stroke="#8b5cf6" stroke-width="2"/>
-                            <text x="45" y="85" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">Athlete</text>
-                            <line x1="75" y1="95" x2="95" y2="110" stroke="#c4b5fd" stroke-width="2.5" opacity="0.6"/>
-
-                            <!-- Dimension: Event -->
-                            <rect x="15" y="165" width="60" height="45" rx="6" fill="url(#dimGrad)" stroke="#8b5cf6" stroke-width="2"/>
-                            <text x="45" y="185" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">Event</text>
-                            <line x1="75" y1="177" x2="95" y2="140" stroke="#c4b5fd" stroke-width="2.5" opacity="0.6"/>
-
-                            <!-- Dimension: Program -->
-                            <rect x="175" y="165" width="60" height="45" rx="6" fill="url(#dimGrad)" stroke="#8b5cf6" stroke-width="2"/>
-                            <text x="205" y="185" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">Program</text>
-                            <line x1="175" y1="177" x2="155" y2="140" stroke="#c4b5fd" stroke-width="2.5" opacity="0.6"/>
-                        </g>
-
-                        <!-- Arrow 3 -->
-                        <path d="M 670 175 L 720 175" stroke="#7c3aed" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
-
-                        <!-- Analytics -->
-                        <g transform="translate(720, 125)">
-                            <rect width="120" height="100" rx="10" fill="#fff" stroke="#5b21b6" stroke-width="2.5" filter="url(#shadow)"/>
-                            <text x="60" y="28" text-anchor="middle" fill="#5b21b6" font-size="15" font-weight="700">Analytics</text>
-
-                            <!-- Chart visualization -->
-                            <g transform="translate(20, 42)">
-                                <rect x="0" y="30" width="10" height="18" rx="2" fill="#c4b5fd"/>
-                                <rect x="16" y="22" width="10" height="26" rx="2" fill="#a78bfa"/>
-                                <rect x="32" y="18" width="10" height="30" rx="2" fill="#8b5cf6"/>
-                                <rect x="48" y="10" width="10" height="38" rx="2" fill="#7c3aed"/>
-                                <rect x="64" y="14" width="10" height="34" rx="2" fill="#6d28d9"/>
-                                <line x1="0" y1="52" x2="78" y2="52" stroke="#e2e8f0" stroke-width="1.5"/>
-                            </g>
-                        </g>
-
-                        <!-- Bottom label -->
-                        <text x="425" y="350" text-anchor="middle" fill="#5b21b6" font-size="16" font-weight="700">Data Pipeline Architecture</text>
-                    </svg>
-                </div>
-
-                <div class="tech-stack">
-                    <span class="tech-tag">Snowflake</span>
-                    <span class="tech-tag">SQL</span>
-                    <span class="tech-tag">Dynamic Tables</span>
-                    <span class="tech-tag">ETL</span>
-                    <span class="tech-tag">Dimensional Modeling</span>
-                    <span class="tech-tag">Git Integration</span>
-                    <span class="tech-tag">API Integration</span>
-                    <span class="tech-tag">JSON Processing</span>
-                    <span class="tech-tag">Task Orchestration</span>
-                </div>
-
-                <div class="project-details">
-                    <div class="project-section">
-                        <h4>📊 Star Schema Implementation</h4>
-                        <p style="line-height: 1.7; color: var(--text-dark); margin-bottom: 1rem;">The datamart layer implements a star schema with automated 6-hour refresh cycles using Snowflake Dynamic Tables. Beyond the core results fact table, the model includes additional fact tables for world rankings and race start lists.</p>
-                    </div>
-
-                    <div class="project-section">
-                        <h4>⚙️ Technical Implementation</h4>
-                        <p style="line-height: 1.7; color: var(--text-dark);">
-                            Built with <strong>Snowflake Dynamic Tables</strong> for automated transformation and refresh orchestration.
-                            Implements <strong>daily ranking historization</strong> to track athlete world ranking evolution over time.
-                            Advanced SQL techniques including JSON parsing with FLATTEN, window functions for rankings, and complex CTEs.
-                            Integrated with World Triathlon APIs using external access integrations and Git repository for version control.
-                        </p>
-                    </div>
-
-                    <div class="project-section">
-                        <h4>📈 Analytics Use Cases</h4>
-                        <p style="line-height: 1.7; color: var(--text-dark);">
-                            Enables performance analysis across swim/bike/run splits, pace calculations, position tracking, and leader gaps.
-                            Supports competitive intelligence through world ranking categorization, performance bucketing, race dynamics analysis,
-                            and category comparisons for athlete evaluation.
-                        </p>
-                    </div>
-
-                    <div class="project-section">
-                        <h4>🎯 Results</h4>
-                        <p style="line-height: 1.7; color: var(--text-dark);">
-                            Automated pipeline processing thousands of race results with 6-hour data freshness.
-                            Scalable architecture supporting multi-year historical analysis and comprehensive competitive intelligence.
-                        </p>
-                    </div>
-                </div>
-
-                <div style="margin-top: 2rem; padding: 1.5rem; background: #f3f0ff; border-radius: 10px; border-left: 3px solid var(--primary-color);">
-                    <p style="color: var(--text-dark); line-height: 1.7;">
-                        <strong style="color: var(--primary-color);">Full-stack data engineering:</strong>
-                        ETL pipeline design, dimensional modeling, automated orchestration, and analytics delivery.
-                        Demonstrates proficiency in cloud data platforms, advanced SQL, API integration, and translating
-                        business requirements into scalable technical solutions.
-                    </p>
-                </div>
+            <div class="education-entry">
+                <div class="education-degree">MSc Electrical Engineering — Data Science specialisation</div>
+                <div class="education-school">EPFL, École Polytechnique Fédérale de Lausanne</div>
+                <div class="education-period">2020 – 2023</div>
+                <ul class="education-projects">
+                    <li>Deep learning of Koopman operator for non-linear dynamical systems (GNN + Koopman theory)</li>
+                    <li>Data-driven distributed control of microgrids via deep reinforcement learning</li>
+                </ul>
             </div>
 
-            <!-- Academic Research Project -->
-            <div class="project-showcase" style="margin-top: 3rem;">
-                <div class="project-header">
-                    <h3>🔬 Data-Driven Distributed Control of Microgrids</h3>
-                    <p style="color: var(--text-light); font-size: 1rem; margin-bottom: 0.5rem;">
-                        <strong>Academic Research Project | EPFL | Spring 2021</strong>
-                    </p>
-                    <p style="line-height: 1.7; color: var(--text-dark);">
-                        Advanced research project applying deep reinforcement learning to optimize microgrid control systems.
-                        Directly relevant to modern energy challenges of integrating renewable energy sources and storage systems.
-                    </p>
+            <div class="education-entry">
+                <div class="education-degree">BSc Electrical Engineering</div>
+                <div class="education-school">EPFL, École Polytechnique Fédérale de Lausanne</div>
+                <div class="education-period">2016 – 2020</div>
+                <div class="education-sub">incl. Erasmus at Karlsruhe Institut für Technologie (KIT), Germany</div>
+            </div>
+
+            <div class="education-continuing">
+                <h3>Continuing Education</h3>
+                <div class="cert-entry">
+                    <div class="cert-name">Analytics Engineering Bootcamp <span class="cert-badge">Capstone 100%</span></div>
+                    <div class="cert-meta">DataExpert.io · Feb 2026 · Airflow · dbt · Snowflake · Apache Iceberg · CDC · Data Modeling</div>
                 </div>
-
-                <div class="project-image">
-                    <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="microgrid-architecture-title">
-                        <title id="microgrid-architecture-title">Microgrid System Architecture with AI Control Diagram</title>
-                        <!-- Solar PV Array -->
-                        <g transform="translate(100, 50)">
-                            <rect width="160" height="100" rx="8" fill="#fff" stroke="#5b21b6" stroke-width="2"/>
-                            <text x="80" y="25" text-anchor="middle" fill="#5b21b6" font-size="14" font-weight="600">Solar PV</text>
-                            <!-- Solar panels -->
-                            <rect x="25" y="35" width="35" height="25" rx="3" fill="#fbbf24" stroke="#f59e0b" stroke-width="1.5"/>
-                            <rect x="65" y="35" width="35" height="25" rx="3" fill="#fbbf24" stroke="#f59e0b" stroke-width="1.5"/>
-                            <rect x="105" y="35" width="35" height="25" rx="3" fill="#fbbf24" stroke="#f59e0b" stroke-width="1.5"/>
-                            <!-- Sun rays -->
-                            <line x1="80" y1="15" x2="80" y2="5" stroke="#fbbf24" stroke-width="2"/>
-                            <line x1="65" y1="18" x2="58" y2="11" stroke="#fbbf24" stroke-width="2"/>
-                            <line x1="95" y1="18" x2="102" y2="11" stroke="#fbbf24" stroke-width="2"/>
-                            <text x="80" y="80" text-anchor="middle" fill="#64748b" font-size="12">Variable Generation</text>
-                        </g>
-
-                        <!-- Battery Storage -->
-                        <g transform="translate(100, 200)">
-                            <rect width="160" height="100" rx="8" fill="#fff" stroke="#5b21b6" stroke-width="2"/>
-                            <text x="80" y="25" text-anchor="middle" fill="#5b21b6" font-size="14" font-weight="600">Battery Storage</text>
-                            <!-- Battery icon -->
-                            <rect x="60" y="40" width="40" height="25" rx="3" fill="#10b981" stroke="#059669" stroke-width="2"/>
-                            <rect x="97" y="45" width="6" height="15" fill="#10b981"/>
-                            <!-- Charge indicator -->
-                            <rect x="65" y="48" width="8" height="12" fill="#fff" opacity="0.9"/>
-                            <rect x="75" y="48" width="8" height="12" fill="#fff" opacity="0.9"/>
-                            <rect x="85" y="48" width="8" height="12" fill="#fff" opacity="0.7"/>
-                            <text x="80" y="80" text-anchor="middle" fill="#64748b" font-size="12">Energy Storage</text>
-                        </g>
-
-                        <!-- Control System (Center) -->
-                        <g transform="translate(330, 150)">
-                            <rect width="140" height="120" rx="8" fill="#5b21b6" stroke="#5b21b6" stroke-width="2"/>
-                            <text x="70" y="30" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">AI Control</text>
-                            <text x="70" y="48" text-anchor="middle" fill="#e9d5ff" font-size="11">Deep RL Agent</text>
-                            <!-- Neural network icon -->
-                            <circle cx="40" cy="70" r="5" fill="#a78bfa"/>
-                            <circle cx="70" cy="60" r="5" fill="#a78bfa"/>
-                            <circle cx="70" cy="80" r="5" fill="#a78bfa"/>
-                            <circle cx="100" cy="70" r="5" fill="#a78bfa"/>
-                            <line x1="45" y1="70" x2="65" y2="62" stroke="#e9d5ff" stroke-width="1.5"/>
-                            <line x1="45" y1="70" x2="65" y2="78" stroke="#e9d5ff" stroke-width="1.5"/>
-                            <line x1="75" y1="60" x2="95" y2="70" stroke="#e9d5ff" stroke-width="1.5"/>
-                            <line x1="75" y1="80" x2="95" y2="70" stroke="#e9d5ff" stroke-width="1.5"/>
-                            <text x="70" y="105" text-anchor="middle" fill="#fff" font-size="11">Optimization</text>
-                        </g>
-
-                        <!-- Grid Connection -->
-                        <g transform="translate(560, 120)">
-                            <rect width="140" height="80" rx="8" fill="#fff" stroke="#5b21b6" stroke-width="2"/>
-                            <text x="70" y="25" text-anchor="middle" fill="#5b21b6" font-size="14" font-weight="600">Grid</text>
-                            <!-- Power lines -->
-                            <line x1="40" y1="45" x2="100" y2="45" stroke="#5b21b6" stroke-width="3"/>
-                            <circle cx="50" cy="45" r="4" fill="#7c3aed"/>
-                            <circle cx="70" cy="45" r="4" fill="#7c3aed"/>
-                            <circle cx="90" cy="45" r="4" fill="#7c3aed"/>
-                            <text x="70" y="68" text-anchor="middle" fill="#64748b" font-size="12">Main Grid</text>
-                        </g>
-
-                        <!-- Loads -->
-                        <g transform="translate(560, 240)">
-                            <rect width="140" height="100" rx="8" fill="#fff" stroke="#5b21b6" stroke-width="2"/>
-                            <text x="70" y="25" text-anchor="middle" fill="#5b21b6" font-size="14" font-weight="600">Loads</text>
-                            <!-- Houses/buildings -->
-                            <polygon points="40,50 50,40 60,50 60,65 40,65" fill="#e9d5ff" stroke="#7c3aed" stroke-width="1.5"/>
-                            <rect x="44" y="55" width="6" height="8" fill="#5b21b6"/>
-                            <polygon points="70,55 80,45 90,55 90,70 70,70" fill="#e9d5ff" stroke="#7c3aed" stroke-width="1.5"/>
-                            <rect x="74" y="60" width="6" height="8" fill="#5b21b6"/>
-                            <text x="70" y="85" text-anchor="middle" fill="#64748b" font-size="12">Variable Demand</text>
-                        </g>
-
-                        <!-- Arrows -->
-                        <defs>
-                            <marker id="arrowhead2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                                <polygon points="0 0, 10 3, 0 6" fill="#7c3aed"/>
-                            </marker>
-                        </defs>
-
-                        <!-- PV to Control -->
-                        <path d="M 260 100 L 330 180" stroke="#7c3aed" stroke-width="2.5" fill="none" marker-end="url(#arrowhead2)" stroke-dasharray="5,5"/>
-                        <!-- Battery to Control -->
-                        <path d="M 260 250 L 330 230" stroke="#7c3aed" stroke-width="2.5" fill="none" marker-end="url(#arrowhead2)" stroke-dasharray="5,5"/>
-                        <!-- Control to Grid -->
-                        <path d="M 470 200 L 560 170" stroke="#7c3aed" stroke-width="2.5" fill="none" marker-end="url(#arrowhead2)"/>
-                        <!-- Control to Loads -->
-                        <path d="M 470 220 L 560 270" stroke="#7c3aed" stroke-width="2.5" fill="none" marker-end="url(#arrowhead2)"/>
-
-                        <!-- Title -->
-                        <text x="400" y="395" text-anchor="middle" fill="#5b21b6" font-size="16" font-weight="600">Microgrid System Architecture</text>
-                        <text x="400" y="420" text-anchor="middle" fill="#64748b" font-size="13">AI-Optimized Energy Distribution & Storage Management</text>
-                    </svg>
+                <div class="cert-entry">
+                    <div class="cert-name">Data Engineering Professional Certificate <span class="cert-badge cert-badge-progress">2/4 certified</span></div>
+                    <div class="cert-meta">DeepLearning.AI &amp; AWS / Coursera · In progress, 2026 · Joe Reis &amp; Morgan Willis · Completed: Introduction to Data Engineering · Source Systems, Data Ingestion &amp; Pipelines</div>
                 </div>
+            </div>
+        </section>
 
-                <div class="tech-stack">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Deep Reinforcement Learning</span>
-                    <span class="tech-tag">Control Systems</span>
-                    <span class="tech-tag">Optimization</span>
-                    <span class="tech-tag">Energy Systems</span>
-                    <span class="tech-tag">PV Integration</span>
-                </div>
-
-                <div class="project-details">
-                    <div class="project-section">
-                        <h4>🎯 Project Objective</h4>
-                        <p style="line-height: 1.7; color: var(--text-dark);">
-                            Implementation of <strong>deep reinforcement learning agents</strong> to intelligently control
-                            a complex microgrid system composed of variable loads, battery storage systems, and
-                            photovoltaic (PV) power stations. The goal was to optimize energy distribution, minimize costs,
-                            and maintain grid stability under dynamic conditions.
-                        </p>
-                    </div>
-
-                    <div class="project-section">
-                        <h4>🔋 System Components</h4>
-                        <div class="feature-grid">
-                            <div class="feature-item">
-                                <h5>Microgrid Architecture</h5>
-                                <ul>
-                                    <li>Variable electrical loads (residential/commercial)</li>
-                                    <li>Battery energy storage systems (BESS)</li>
-                                    <li>Photovoltaic (PV) power stations</li>
-                                    <li>Grid connection interface</li>
-                                </ul>
-                            </div>
-                            <div class="feature-item">
-                                <h5>Control Challenges</h5>
-                                <ul>
-                                    <li>Non-linear system dynamics</li>
-                                    <li>Variable renewable generation</li>
-                                    <li>Dynamic load patterns</li>
-                                    <li>Storage optimization</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-section">
-                        <h4>⚡ Relevance to Energy Transition</h4>
-                        <p style="line-height: 1.7; color: var(--text-dark);">
-                            This research directly addresses one of the most critical challenges in modern energy systems:
-                            <strong>intelligently managing distributed energy resources</strong>. As the penetration of
-                            solar PV increases, grid operators and energy companies face complex optimization problems
-                            that require sophisticated control algorithms, exactly the type of challenge solved in this project
-                            and currently being addressed in production systems.
-                        </p>
-                    </div>
-                </div>
-
-                <div style="margin-top: 2rem; padding: 1.5rem; background: #f3f0ff; border-radius: 10px; border-left: 3px solid var(--primary-color);">
-                    <h4 style="color: var(--primary-color); margin-bottom: 0.75rem; font-size: 1.1rem;">Skills Demonstrated</h4>
-                    <p style="color: var(--text-dark); line-height: 1.7;">
-                        Advanced machine learning application to real-world energy systems, combining deep reinforcement learning,
-                        control theory, and optimization. Demonstrates ability to apply cutting-edge AI techniques to
-                        complex engineering problems in the energy sector, skills directly applicable to production forecasting
-                        and optimization systems.
-                    </p>
-                </div>
+        <!-- Writing Section -->
+        <section id="writing">
+            <h2>Writing</h2>
+            <div class="writing-grid">
+                <a href="https://medium.com/@sjeanfavre/how-to-join-temporal-tables-without-losing-data-7ecc41018807" target="_blank" rel="noopener" class="writing-card">
+                    <h3>How to Join Temporal Tables Without Losing Data</h3>
+                    <p>Compares three SQL approaches for joining tables with validity intervals, showing why the sweep join technique correctly handles gaps, future dates, and phantom rows where inequality joins and calendar explosions fail.</p>
+                    <span class="writing-link">Read on Medium →</span>
+                </a>
+                <a href="https://medium.com/@sjeanfavre/your-temporal-joins-dont-need-a-calendar-table-they-need-this-6b6729ed4341" target="_blank" rel="noopener" class="writing-card">
+                    <h3>Your Temporal Joins Don't Need a Calendar Table. They Need This.</h3>
+                    <p>Introduces the Sweep Join pattern as a superior alternative to calendar table joins, reducing intermediate rows from 347M to 885K while providing correct interval semantics that standard joins cannot express.</p>
+                    <span class="writing-link">Read on Medium →</span>
+                </a>
             </div>
         </section>
 
